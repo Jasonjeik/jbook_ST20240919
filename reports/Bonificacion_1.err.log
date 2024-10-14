@@ -30,8 +30,14 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# Entrenamiento en todas las tablas', 'models = []', 'for i, train_table in enumerate(train_tables):', '    print(f"Entrenando modelo para tabla {i+1}")', '    model = train_exponential_smoothing(train_table)']
-...
-["    plt.title(f'Modelo {i+1} - Datos de Entrenamiento y Modelo Ajustado')", "    plt.xlabel('Time')", "    plt.ylabel('Electric Power')", '    plt.legend()', '    plt.show()']
+seasonal_periods = 2550 # Ajusta este valor según tus datos
+best_alpha, best_beta, best_gamma, best_mae = tes_model_tuning(
+    train, val, test, 
+    step_val=tau_val, 
+    step_test=tau_test, 
+    trend=None, 
+    seasonal='add', 
+    seasonal_periods=seasonal_periods
+)
 -------------------
 
