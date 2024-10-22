@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Deep Learning &#8212; jbook_ST20240919</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Parcial';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Proyecto Final Series de Tiempo" href="Proyecto_final.html" />
+    <link rel="prev" title="Bonificación Práctica" href="Bonificacion_1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo.jpg" class="logo__image only-light" alt="jbook_ST20240919 - Home"/>
+    <script>document.write(`<img src="_static/Logo.jpg" class="logo__image only-dark" alt="jbook_ST20240919 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Estudios.html">1.2 Datos Transversales</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Tarea 1: Series Tiempo dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bonificacion_1.html">Bonificación Práctica</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Deep Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Proyecto_final.html">Proyecto Final Series de Tiempo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="EDA.html">ANÁLISIS EXPLORATORIO DE DATOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Modelos_comerciales.html">Modelos Comerciales</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FParcial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Parcial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Deep Learning</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="deep-learning">
+<h1>Deep Learning<a class="headerlink" href="#deep-learning" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Leer el archivo y procesar los datos</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;C:/Users/FBA/OneDrive - Acesco/0. Personales/2. Profesional/20240416 - Maestria en Analítica de Datos/20240919 Series de Tiempo/Parcial/bitcoin.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+<span class="c1"># Convertir &#39;Price&#39; a numérico eliminando comas</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">])</span>
+
+<span class="c1"># Convertir &#39;Date&#39; a formato datetime y establecer como índice</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Ordenar el DataFrame por fecha</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Graficar los precios</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bitcoin Price Over Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Copiar la columna &#39;Price&#39; a una nueva variable</span>
+<span class="n">df_price</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Mostrar las primeras filas de df_price</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_price</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span><span class="n">df_price</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8e5f08f35ce75a626301d4e5e735abe0a4544c37eaabba094c2c63ed286b885b.png" src="_images/8e5f08f35ce75a626301d4e5e735abe0a4544c37eaabba094c2c63ed286b885b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date
+2010-07-18    0.1
+2010-07-19    0.1
+2010-07-20    0.1
+2010-07-21    0.1
+2010-07-22    0.1
+Name: Price, dtype: float64 Date
+2024-03-20    67854.0
+2024-03-21    65503.8
+2024-03-22    63785.5
+2024-03-23    64037.8
+2024-03-24    67211.9
+Name: Price, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Función para crear las ventanas deslizantes y asegurar que siempre existan valores para los `tau` futuros</span>
+<span class="k">def</span> <span class="nf">create_sliding_windows</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">window_sizes</span><span class="p">,</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">taus</span><span class="p">):</span>
+    <span class="n">result_dict</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Diccionario para almacenar los DataFrames por `window_size`</span>
+
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">window_sizes</span><span class="p">:</span>    
+        <span class="n">all_combined_dfs</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Para almacenar resultados combinados para el tamaño de ventana actual</span>
+
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">taus</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">w</span> <span class="o">+</span> <span class="n">t</span><span class="p">),</span> <span class="n">step_size</span><span class="p">):</span>
+                <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">w</span><span class="p">])</span>  <span class="c1"># Ventana de entrada</span>
+                
+                <span class="c1"># Agregar `Tau_0` como el valor justo después de la ventana</span>
+                <span class="n">tau_0_value</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">w</span><span class="o">+</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> 
+                
+                <span class="c1"># Obtener valores futuros para `tau`</span>
+                <span class="n">future_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">w</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>  <span class="c1"># Valores futuros `tau` periodos por delante</span>
+                
+                <span class="c1"># Combinar `Tau_0` con los valores futuros</span>
+                <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tau_0_value</span><span class="p">)</span>
+
+            <span class="c1"># Crear DataFrames</span>
+            <span class="n">df_X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">df_y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Tau_</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">])</span>
+            
+            <span class="c1"># Combinar DataFrames de la ventana y la salida de `tau`</span>
+            <span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_X</span><span class="p">,</span> <span class="n">df_y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">all_combined_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_combined</span><span class="p">)</span>
+        
+        <span class="c1"># Combinar todos los resultados en un solo DataFrame para el `window_size` actual</span>
+        <span class="n">final_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_combined_dfs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="c1"># Guardar en el diccionario</span>
+        <span class="n">result_dict</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Window_</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">final_df</span>
+    
+    <span class="k">return</span> <span class="n">result_dict</span>
+
+  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">def</span> <span class="nf">plot_ts</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label_data</span><span class="p">,</span> <span class="n">s_date</span><span class="p">,</span> <span class="n">e_date</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">)</span>
+    <span class="n">df_labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">label_data</span><span class="p">)</span>
+
+    <span class="n">start_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">s_date</span><span class="p">)</span>
+    <span class="n">end_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">e_date</span><span class="p">)</span>
+
+    <span class="c1"># Seleccionar columnas específicas para cambiar el color (ej. cambiar color de la columna 3 y 5)</span>
+    <span class="n">highlight_columns</span> <span class="o">=</span> <span class="n">tau</span>
+
+    <span class="c1"># Filtrar las filas que contienen al menos una fecha dentro del rango</span>
+    <span class="n">filtered_indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">((</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="n">start_date</span> <span class="ow">and</span> <span class="n">date</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)</span> <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">row</span><span class="p">):</span>
+            <span class="n">filtered_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="c1"># Crear la figura</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+    <span class="c1"># Definir colores en bloques de 14, 7, 7 (azul, naranja, verde)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">w</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">]</span> <span class="o">*</span><span class="n">w</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span> <span class="o">*</span><span class="n">w</span>
+    <span class="n">color_cycle</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+
+    <span class="c1"># Graficar solo las filas filtradas y agregar etiquetas a cada punto basadas en df_labels</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">filtered_indices</span><span class="p">:</span>
+        <span class="n">row_dates</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">row_labels</span> <span class="o">=</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        
+        <span class="c1"># Determinar el color basado en el índice y la secuencia de colores</span>
+        <span class="n">block_index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">%</span> <span class="n">color_cycle</span>
+        
+        <span class="c1"># Marcar los puntos para cada fecha dentro del rango seleccionado en el eje X</span>
+        <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">row_dates</span><span class="p">,</span> <span class="n">row_labels</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">start_date</span> <span class="o">&lt;=</span> <span class="n">date</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">:</span>
+                <span class="c1"># Cambiar color si la columna está en highlight_columns</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">highlight_columns</span> <span class="k">else</span> <span class="n">colors</span><span class="p">[</span><span class="n">block_index</span><span class="p">]</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+                <span class="c1"># Agregar etiqueta usando los valores de df_labels</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Configurar etiquetas de los ejes</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fechas&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Índice&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Gráfico de fechas vs índice con etiquetas personalizadas y colores destacados&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Limitar el rango del eje X</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+
+    <span class="c1"># Limitar el rango del eje Y solo a los índices seleccionados</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">filtered_indices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">filtered_indices</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Rotar las fechas para mejor visibilidad</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Función para segmentar los datos en train, validation y test</span>
+<span class="k">def</span> <span class="nf">segment_data_by_window</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">train_size</span><span class="p">,</span> <span class="n">val_size</span><span class="p">,</span> <span class="n">test_size</span><span class="p">):</span>
+    <span class="n">train_data</span><span class="p">,</span> <span class="n">val_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+    
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">+</span> <span class="n">train_size</span> <span class="o">+</span> <span class="n">val_size</span> <span class="o">+</span> <span class="n">test_size</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <span class="c1"># Segmento de entrenamiento</span>
+        <span class="n">train_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">train_size</span><span class="p">])</span>
+        <span class="c1"># Segmento de validación</span>
+        <span class="n">val_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">train_size</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">train_size</span> <span class="o">+</span> <span class="n">val_size</span><span class="p">])</span>
+        <span class="c1"># Segmento de prueba</span>
+        <span class="n">test_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">train_size</span> <span class="o">+</span> <span class="n">val_size</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">train_size</span> <span class="o">+</span> <span class="n">val_size</span> <span class="o">+</span> <span class="n">test_size</span><span class="p">])</span>
+        
+        <span class="c1"># Mover el índice al siguiente bloque</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="n">train_size</span> <span class="o">+</span> <span class="n">val_size</span> <span class="o">+</span> <span class="n">test_size</span>
+    
+    <span class="c1"># Concatenar los segmentos de datos</span>
+    <span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">val_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">val_data</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">train_data</span><span class="p">,</span> <span class="n">val_data</span><span class="p">,</span> <span class="n">test_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo de uso:</span>
+<span class="n">window_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">taus</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Consideramos valores hasta `tau` de 28 periodos adelante</span>
+
+<span class="c1"># Crear las ventanas deslizantes</span>
+<span class="n">result_dict</span> <span class="o">=</span> <span class="n">create_sliding_windows</span><span class="p">(</span><span class="n">df_price</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">window_sizes</span><span class="p">,</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">taus</span><span class="p">)</span>
+<span class="n">result_dict2</span> <span class="o">=</span> <span class="n">create_sliding_windows</span><span class="p">(</span><span class="n">df_price</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">window_sizes</span><span class="p">,</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">taus</span><span class="p">)</span>
+<span class="c1"># Definir tamaños para cada segmentación</span>
+<span class="n">segment_sizes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">7</span><span class="p">:</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+    <span class="mi">14</span><span class="p">:</span> <span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>
+    <span class="mi">21</span><span class="p">:</span> <span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">21</span><span class="p">),</span>
+    <span class="mi">28</span><span class="p">:</span> <span class="p">(</span><span class="mi">56</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Aplicar la segmentación a cada DataFrame</span>
+<span class="n">segmented_data</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">window_key</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">result_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">window_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">window_key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">train_size</span><span class="p">,</span> <span class="n">val_size</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">segment_sizes</span><span class="p">[</span><span class="n">window_size</span><span class="p">]</span>
+    
+    <span class="c1"># Obtener los datos segmentados</span>
+    <span class="n">train_data</span><span class="p">,</span> <span class="n">val_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">segment_data_by_window</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">train_size</span><span class="p">,</span> <span class="n">val_size</span><span class="p">,</span> <span class="n">test_size</span><span class="p">)</span>
+    
+    <span class="c1"># Guardar en el diccionario</span>
+    <span class="n">segmented_data</span><span class="p">[</span><span class="n">window_key</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="n">train_data</span><span class="p">,</span>
+        <span class="s1">&#39;validation&#39;</span><span class="p">:</span> <span class="n">val_data</span><span class="p">,</span>
+        <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="n">test_data</span>
+    <span class="p">}</span>
+
+<span class="c1"># Ejemplo de cómo acceder a los datos segmentados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train Data for Window_7:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">segmented_data</span><span class="p">[</span><span class="s1">&#39;Window_7&#39;</span><span class="p">][</span><span class="s1">&#39;train&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation Data for Window_7:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">segmented_data</span><span class="p">[</span><span class="s1">&#39;Window_7&#39;</span><span class="p">][</span><span class="s1">&#39;validation&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Data for Window_7:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">segmented_data</span><span class="p">[</span><span class="s1">&#39;Window_7&#39;</span><span class="p">][</span><span class="s1">&#39;test&#39;</span><span class="p">])</span>
+
+<span class="c1"># Aplicar la segmentación a cada DataFrame</span>
+<span class="n">segmented_data2</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">window_key</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">result_dict2</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">window_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">window_key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">train_size</span><span class="p">,</span> <span class="n">val_size</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">segment_sizes</span><span class="p">[</span><span class="n">window_size</span><span class="p">]</span>
+    
+    <span class="c1"># Obtener los datos segmentados</span>
+    <span class="n">train_data</span><span class="p">,</span> <span class="n">val_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">segment_data_by_window</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">train_size</span><span class="p">,</span> <span class="n">val_size</span><span class="p">,</span> <span class="n">test_size</span><span class="p">)</span>
+    
+    <span class="c1"># Guardar en el diccionario</span>
+    <span class="n">segmented_data2</span><span class="p">[</span><span class="n">window_key</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="n">train_data</span><span class="p">,</span>
+        <span class="s1">&#39;validation&#39;</span><span class="p">:</span> <span class="n">val_data</span><span class="p">,</span>
+        <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="n">test_data</span>
+    <span class="p">}</span>
+
+<span class="c1"># Ejemplo de cómo acceder a los datos segmentados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train Data for Window_7:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">segmented_data2</span><span class="p">[</span><span class="s1">&#39;Window_7&#39;</span><span class="p">][</span><span class="s1">&#39;train&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validation Data for Window_7:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">segmented_data2</span><span class="p">[</span><span class="s1">&#39;Window_7&#39;</span><span class="p">][</span><span class="s1">&#39;validation&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test Data for Window_7:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">segmented_data2</span><span class="p">[</span><span class="s1">&#39;Window_7&#39;</span><span class="p">][</span><span class="s1">&#39;test&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train Data for Window_7:
+              0          1          2          3          4          5  \
+0    2010-07-18 2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23   
+1    2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24   
+2    2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25   
+3    2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26   
+4    2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26 2010-07-27   
+...         ...        ...        ...        ...        ...        ...   
+2487 2024-02-20 2024-02-21 2024-02-22 2024-02-23 2024-02-24 2024-02-25   
+2488 2024-02-21 2024-02-22 2024-02-23 2024-02-24 2024-02-25 2024-02-26   
+2489 2024-02-22 2024-02-23 2024-02-24 2024-02-25 2024-02-26 2024-02-27   
+2490 2024-02-23 2024-02-24 2024-02-25 2024-02-26 2024-02-27 2024-02-28   
+2491 2024-02-24 2024-02-25 2024-02-26 2024-02-27 2024-02-28 2024-02-29   
+
+              6      Tau_0  
+0    2010-07-24 2010-07-25  
+1    2010-07-25 2010-07-26  
+2    2010-07-26 2010-07-27  
+3    2010-07-27 2010-07-28  
+4    2010-07-28 2010-07-29  
+...         ...        ...  
+2487 2024-02-26 2024-02-27  
+2488 2024-02-27 2024-02-28  
+2489 2024-02-28 2024-02-29  
+2490 2024-02-29 2024-03-01  
+2491 2024-03-01 2024-03-02  
+
+[2492 rows x 8 columns]
+Validation Data for Window_7:
+              0          1          2          3          4          5  \
+0    2010-08-01 2010-08-02 2010-08-03 2010-08-04 2010-08-05 2010-08-06   
+1    2010-08-02 2010-08-03 2010-08-04 2010-08-05 2010-08-06 2010-08-07   
+2    2010-08-03 2010-08-04 2010-08-05 2010-08-06 2010-08-07 2010-08-08   
+3    2010-08-04 2010-08-05 2010-08-06 2010-08-07 2010-08-08 2010-08-09   
+4    2010-08-05 2010-08-06 2010-08-07 2010-08-08 2010-08-09 2010-08-10   
+...         ...        ...        ...        ...        ...        ...   
+1241 2024-02-27 2024-02-28 2024-02-29 2024-03-01 2024-03-02 2024-03-03   
+1242 2024-02-28 2024-02-29 2024-03-01 2024-03-02 2024-03-03 2024-03-04   
+1243 2024-02-29 2024-03-01 2024-03-02 2024-03-03 2024-03-04 2024-03-05   
+1244 2024-03-01 2024-03-02 2024-03-03 2024-03-04 2024-03-05 2024-03-06   
+1245 2024-03-02 2024-03-03 2024-03-04 2024-03-05 2024-03-06 2024-03-07   
+
+              6      Tau_0  
+0    2010-08-07 2010-08-08  
+1    2010-08-08 2010-08-09  
+2    2010-08-09 2010-08-10  
+3    2010-08-10 2010-08-11  
+4    2010-08-11 2010-08-12  
+...         ...        ...  
+1241 2024-03-04 2024-03-05  
+1242 2024-03-05 2024-03-06  
+1243 2024-03-06 2024-03-07  
+1244 2024-03-07 2024-03-08  
+1245 2024-03-08 2024-03-09  
+
+[1246 rows x 8 columns]
+Test Data for Window_7:
+              0          1          2          3          4          5  \
+0    2010-08-08 2010-08-09 2010-08-10 2010-08-11 2010-08-12 2010-08-13   
+1    2010-08-09 2010-08-10 2010-08-11 2010-08-12 2010-08-13 2010-08-14   
+2    2010-08-10 2010-08-11 2010-08-12 2010-08-13 2010-08-14 2010-08-15   
+3    2010-08-11 2010-08-12 2010-08-13 2010-08-14 2010-08-15 2010-08-16   
+4    2010-08-12 2010-08-13 2010-08-14 2010-08-15 2010-08-16 2010-08-17   
+...         ...        ...        ...        ...        ...        ...   
+1241 2024-03-05 2024-03-06 2024-03-07 2024-03-08 2024-03-09 2024-03-10   
+1242 2024-03-06 2024-03-07 2024-03-08 2024-03-09 2024-03-10 2024-03-11   
+1243 2024-03-07 2024-03-08 2024-03-09 2024-03-10 2024-03-11 2024-03-12   
+1244 2024-03-08 2024-03-09 2024-03-10 2024-03-11 2024-03-12 2024-03-13   
+1245 2024-03-09 2024-03-10 2024-03-11 2024-03-12 2024-03-13 2024-03-14   
+
+              6      Tau_0  
+0    2010-08-14 2010-08-15  
+1    2010-08-15 2010-08-16  
+2    2010-08-16 2010-08-17  
+3    2010-08-17 2010-08-18  
+4    2010-08-18 2010-08-19  
+...         ...        ...  
+1241 2024-03-11 2024-03-12  
+1242 2024-03-12 2024-03-13  
+1243 2024-03-13 2024-03-14  
+1244 2024-03-14 2024-03-15  
+1245 2024-03-15 2024-03-16  
+
+[1246 rows x 8 columns]
+Train Data for Window_7:
+            0        1        2        3        4        5        6    Tau_0
+0         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+1         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+2         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+3         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+4         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+...       ...      ...      ...      ...      ...      ...      ...      ...
+2487  52263.5  51858.2  51320.4  50740.5  51571.6  51722.7  54495.1  57056.2
+2488  51858.2  51320.4  50740.5  51571.6  51722.7  54495.1  57056.2  62467.6
+2489  51320.4  50740.5  51571.6  51722.7  54495.1  57056.2  62467.6  61169.3
+2490  50740.5  51571.6  51722.7  54495.1  57056.2  62467.6  61169.3  62397.7
+2491  51571.6  51722.7  54495.1  57056.2  62467.6  61169.3  62397.7  61994.5
+
+[2492 rows x 8 columns]
+Validation Data for Window_7:
+            0        1        2        3        4        5        6    Tau_0
+0         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+1         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+2         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+3         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+4         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+...       ...      ...      ...      ...      ...      ...      ...      ...
+1241  57056.2  62467.6  61169.3  62397.7  61994.5  63135.8  68270.1  63792.6
+1242  62467.6  61169.3  62397.7  61994.5  63135.8  68270.1  63792.6  66080.4
+1243  61169.3  62397.7  61994.5  63135.8  68270.1  63792.6  66080.4  66855.3
+1244  62397.7  61994.5  63135.8  68270.1  63792.6  66080.4  66855.3  68172.0
+1245  61994.5  63135.8  68270.1  63792.6  66080.4  66855.3  68172.0  68366.5
+
+[1246 rows x 8 columns]
+Test Data for Window_7:
+            0        1        2        3        4        5        6    Tau_0
+0         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+1         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+2         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+3         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+4         0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1
+...       ...      ...      ...      ...      ...      ...      ...      ...
+1241  63792.6  66080.4  66855.3  68172.0  68366.5  68964.8  72099.1  71470.2
+1242  66080.4  66855.3  68172.0  68366.5  68964.8  72099.1  71470.2  73066.3
+1243  66855.3  68172.0  68366.5  68964.8  72099.1  71470.2  73066.3  71387.5
+1244  68172.0  68366.5  68964.8  72099.1  71470.2  73066.3  71387.5  69463.7
+1245  68366.5  68964.8  72099.1  71470.2  73066.3  71387.5  69463.7  65314.2
+
+[1246 rows x 8 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Supongamos que ya tienes definida tu función `create_sliding_windows` y `plot_ts`</span>
+
+<span class="n">window_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">taus</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># Consideramos valores hasta `tau` de 4 periodos adelante</span>
+
+<span class="c1"># Crear los resultados</span>
+<span class="n">result_dict1</span> <span class="o">=</span> <span class="n">create_sliding_windows</span><span class="p">(</span><span class="n">df_price</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">window_sizes</span><span class="p">,</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">taus</span><span class="p">)</span>
+<span class="n">result_dict2</span> <span class="o">=</span> <span class="n">create_sliding_windows</span><span class="p">(</span><span class="n">df_price</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">window_sizes</span><span class="p">,</span> <span class="n">step_size</span><span class="p">,</span> <span class="n">taus</span><span class="p">)</span>
+
+<span class="c1"># Mostrar los resultados para cada tamaño de ventana</span>
+<span class="k">for</span> <span class="n">window_key1</span><span class="p">,</span> <span class="n">df1</span> <span class="ow">in</span> <span class="n">result_dict1</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">window_key2</span><span class="p">,</span> <span class="n">df2</span> <span class="ow">in</span> <span class="n">result_dict2</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="c1"># Comprobar si las formas de los DataFrames coinciden</span>
+        <span class="k">if</span> <span class="n">df1</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">df2</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">df1</span>  <span class="c1"># Datos del primer conjunto</span>
+            <span class="n">label_data</span> <span class="o">=</span> <span class="n">df2</span>  <span class="c1"># Datos del segundo conjunto</span>
+            <span class="n">s_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2010-07-18&quot;</span><span class="p">)</span>
+            <span class="n">e_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2010-08-22&quot;</span><span class="p">)</span>
+           
+            <span class="kn">import</span> <span class="nn">re</span>
+            <span class="c1"># Usar expresiones regulares para extraer el número</span>
+            <span class="n">numero</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="n">window_key2</span><span class="p">)</span>
+            <span class="c1"># Verificar si se encontró un número y convertirlo a entero</span>
+            <span class="k">if</span> <span class="n">numero</span><span class="p">:</span>
+                <span class="n">numero_extraido</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">numero</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">numero_extraido</span><span class="p">)</span>
+                
+            <span class="n">tau</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">numero_extraido</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">window_sizes</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+           <span class="c1"># Llamar a la función para graficar</span>
+            <span class="n">plot_ts</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">label_data</span><span class="p">,</span> <span class="n">s_date</span><span class="p">,</span> <span class="n">e_date</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="n">numero_extraido</span><span class="p">)</span>
+            
+            <span class="n">s_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2024-01-13&quot;</span><span class="p">)</span>
+            <span class="n">e_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2024-02-15&quot;</span><span class="p">)</span>
+            
+            <span class="n">plot_ts</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">label_data</span><span class="p">,</span><span class="n">s_date</span><span class="p">,</span><span class="n">e_date</span><span class="p">,</span><span class="n">tau</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="n">numero_extraido</span><span class="p">)</span>
+            
+            <span class="c1"># Mostrar algunas filas como referencia</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">window_key1</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+<img alt="_images/a423853dff09c97bd001e21866c70ab9ed1b84639133ef3e2d9d9f2c9297b3f6.png" src="_images/a423853dff09c97bd001e21866c70ab9ed1b84639133ef3e2d9d9f2c9297b3f6.png" />
+<img alt="_images/ec9d9c065f7410bec7e6f8539d216997fd84dcf30d3987553951e114975033ad.png" src="_images/ec9d9c065f7410bec7e6f8539d216997fd84dcf30d3987553951e114975033ad.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Window_7:
+            0          1          2          3          4          5  \
+0 2010-07-18 2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23   
+1 2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24   
+2 2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25   
+3 2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26   
+4 2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26 2010-07-27   
+
+           6      Tau_3  
+0 2010-07-24 2010-07-27  
+1 2010-07-25 2010-07-28  
+2 2010-07-26 2010-07-29  
+3 2010-07-27 2010-07-30  
+4 2010-07-28 2010-07-31  
+14
+</pre></div>
+</div>
+<img alt="_images/d34c4bdcd3d13e0a2e63a22f9397665341ca9d8ab78c0f1e1cdc16615af7bcea.png" src="_images/d34c4bdcd3d13e0a2e63a22f9397665341ca9d8ab78c0f1e1cdc16615af7bcea.png" />
+<img alt="_images/c47845c664617168d738de76886c2061dabcbef3e345928c96e2ba38b37cfd02.png" src="_images/c47845c664617168d738de76886c2061dabcbef3e345928c96e2ba38b37cfd02.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Window_14:
+            0          1          2          3          4          5  \
+0 2010-07-18 2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23   
+1 2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24   
+2 2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25   
+3 2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26   
+4 2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26 2010-07-27   
+
+           6          7          8          9         10         11  \
+0 2010-07-24 2010-07-25 2010-07-26 2010-07-27 2010-07-28 2010-07-29   
+1 2010-07-25 2010-07-26 2010-07-27 2010-07-28 2010-07-29 2010-07-30   
+2 2010-07-26 2010-07-27 2010-07-28 2010-07-29 2010-07-30 2010-07-31   
+3 2010-07-27 2010-07-28 2010-07-29 2010-07-30 2010-07-31 2010-08-01   
+4 2010-07-28 2010-07-29 2010-07-30 2010-07-31 2010-08-01 2010-08-02   
+
+          12         13      Tau_3  
+0 2010-07-30 2010-07-31 2010-08-03  
+1 2010-07-31 2010-08-01 2010-08-04  
+2 2010-08-01 2010-08-02 2010-08-05  
+3 2010-08-02 2010-08-03 2010-08-06  
+4 2010-08-03 2010-08-04 2010-08-07  
+21
+</pre></div>
+</div>
+<img alt="_images/4895413b53991b2cdbfd16c5a26fa94f7cbba6d9a86b3554f08c66830395be77.png" src="_images/4895413b53991b2cdbfd16c5a26fa94f7cbba6d9a86b3554f08c66830395be77.png" />
+<img alt="_images/80fbea978a8e9efac80cd32aed7096568627546aa6ae2f201ca5ff8286e94a36.png" src="_images/80fbea978a8e9efac80cd32aed7096568627546aa6ae2f201ca5ff8286e94a36.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Window_21:
+            0          1          2          3          4          5  \
+0 2010-07-18 2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23   
+1 2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24   
+2 2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25   
+3 2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26   
+4 2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26 2010-07-27   
+
+           6          7          8          9  ...         12         13  \
+0 2010-07-24 2010-07-25 2010-07-26 2010-07-27  ... 2010-07-30 2010-07-31   
+1 2010-07-25 2010-07-26 2010-07-27 2010-07-28  ... 2010-07-31 2010-08-01   
+2 2010-07-26 2010-07-27 2010-07-28 2010-07-29  ... 2010-08-01 2010-08-02   
+3 2010-07-27 2010-07-28 2010-07-29 2010-07-30  ... 2010-08-02 2010-08-03   
+4 2010-07-28 2010-07-29 2010-07-30 2010-07-31  ... 2010-08-03 2010-08-04   
+
+          14         15         16         17         18         19  \
+0 2010-08-01 2010-08-02 2010-08-03 2010-08-04 2010-08-05 2010-08-06   
+1 2010-08-02 2010-08-03 2010-08-04 2010-08-05 2010-08-06 2010-08-07   
+2 2010-08-03 2010-08-04 2010-08-05 2010-08-06 2010-08-07 2010-08-08   
+3 2010-08-04 2010-08-05 2010-08-06 2010-08-07 2010-08-08 2010-08-09   
+4 2010-08-05 2010-08-06 2010-08-07 2010-08-08 2010-08-09 2010-08-10   
+
+          20      Tau_3  
+0 2010-08-07 2010-08-10  
+1 2010-08-08 2010-08-11  
+2 2010-08-09 2010-08-12  
+3 2010-08-10 2010-08-13  
+4 2010-08-11 2010-08-14  
+
+[5 rows x 22 columns]
+28
+</pre></div>
+</div>
+<img alt="_images/8d27bca3fb36c1416b276c9a95b0304c2cd3973274e1a18abc8d4d0fc4ea3d1f.png" src="_images/8d27bca3fb36c1416b276c9a95b0304c2cd3973274e1a18abc8d4d0fc4ea3d1f.png" />
+<img alt="_images/5e1d75360cabcbe2f818a93f4ebe395e1292c311c85bdc62ba31009bc6a941e1.png" src="_images/5e1d75360cabcbe2f818a93f4ebe395e1292c311c85bdc62ba31009bc6a941e1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Window_28:
+            0          1          2          3          4          5  \
+0 2010-07-18 2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23   
+1 2010-07-19 2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24   
+2 2010-07-20 2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25   
+3 2010-07-21 2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26   
+4 2010-07-22 2010-07-23 2010-07-24 2010-07-25 2010-07-26 2010-07-27   
+
+           6          7          8          9  ...         19         20  \
+0 2010-07-24 2010-07-25 2010-07-26 2010-07-27  ... 2010-08-06 2010-08-07   
+1 2010-07-25 2010-07-26 2010-07-27 2010-07-28  ... 2010-08-07 2010-08-08   
+2 2010-07-26 2010-07-27 2010-07-28 2010-07-29  ... 2010-08-08 2010-08-09   
+3 2010-07-27 2010-07-28 2010-07-29 2010-07-30  ... 2010-08-09 2010-08-10   
+4 2010-07-28 2010-07-29 2010-07-30 2010-07-31  ... 2010-08-10 2010-08-11   
+
+          21         22         23         24         25         26  \
+0 2010-08-08 2010-08-09 2010-08-10 2010-08-11 2010-08-12 2010-08-13   
+1 2010-08-09 2010-08-10 2010-08-11 2010-08-12 2010-08-13 2010-08-14   
+2 2010-08-10 2010-08-11 2010-08-12 2010-08-13 2010-08-14 2010-08-15   
+3 2010-08-11 2010-08-12 2010-08-13 2010-08-14 2010-08-15 2010-08-16   
+4 2010-08-12 2010-08-13 2010-08-14 2010-08-15 2010-08-16 2010-08-17   
+
+          27      Tau_3  
+0 2010-08-14 2010-08-17  
+1 2010-08-15 2010-08-18  
+2 2010-08-16 2010-08-19  
+3 2010-08-17 2010-08-20  
+4 2010-08-18 2010-08-21  
+
+[5 rows x 29 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Bonificacion_1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bonificación Práctica</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Proyecto_final.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Proyecto Final Series de Tiempo</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jason Barrios
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
