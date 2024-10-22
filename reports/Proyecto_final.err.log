@@ -15,46 +15,45 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#Titulo prueba
-
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 
 df = pd.read_csv(csv_file_path)
 
-# Crear una figura y varios ejes
-num_columns = len(df.columns)
-fig, axes = plt.subplots(nrows=num_columns, ncols=1, figsize=(10, 4 * num_columns), sharex=True)
+# Convertir la columna de fechas al formato de fecha
+df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y')
 
-# Si solo hay un gráfico, axes será un objeto, no una lista, así que lo convertimos en lista
-if num_columns == 1:
-    axes = [axes]
+# Configurar la columna 'Date' como índice
+df.set_index('Date', inplace=True)
 
-# Graficar cada columna en su propio gráfico
-for ax, column in zip(axes, df.columns):
-    ax.plot(df.index, df[column], label=column)
-    ax.set_title(column)
-    ax.set_ylabel('Valores')
-    ax.legend()
+# Crear una figura y ejes para varias series de tiempo
+fig, ax = plt.subplots(figsize=(10, 6))
 
-# Ajustar el diseño
-plt.xlabel('Fecha')
-plt.tight_layout()
+# Graficar series de tiempo
+ax.plot(df.index, df['discharge_kildwick'], label='Caudal en Kildwick/England')
+ax.plot(df.index, df['discharge_armley'], label='Caudal en Armley/England')
+
+# Personalizar gráfico
+ax.set_title('Series de Tiempo Caudal River Air')
+ax.set_xlabel('Fecha')
+ax.set_ylabel('Discharge')
+ax.legend()
 
 # Mostrar gráfico
+plt.xticks(rotation=45)
+plt.tight_layout()
 plt.show()
-
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mNameError[0m                                 Traceback (most recent call last)
-Cell [1;32mIn[1], line 6[0m
-[0;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
-[0;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[1;32m----> 6[0m df [38;5;241m=[39m pd[38;5;241m.[39mread_csv([43mcsv_file_path[49m)
-[0;32m      8[0m [38;5;66;03m# Crear una figura y varios ejes[39;00m
-[0;32m      9[0m num_columns [38;5;241m=[39m [38;5;28mlen[39m(df[38;5;241m.[39mcolumns)
+Cell [1;32mIn[1], line 4[0m
+[0;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[0;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m 
+[1;32m----> 4[0m df [38;5;241m=[39m pd[38;5;241m.[39mread_csv([43mcsv_file_path[49m)
+[0;32m      6[0m [38;5;66;03m# Convertir la columna de fechas al formato de fecha[39;00m
+[0;32m      7[0m df[[38;5;124m'[39m[38;5;124mDate[39m[38;5;124m'[39m] [38;5;241m=[39m pd[38;5;241m.[39mto_datetime(df[[38;5;124m'[39m[38;5;124mDate[39m[38;5;124m'[39m], [38;5;28mformat[39m[38;5;241m=[39m[38;5;124m'[39m[38;5;132;01m%d[39;00m[38;5;124m/[39m[38;5;124m%[39m[38;5;124mm/[39m[38;5;124m%[39m[38;5;124mY[39m[38;5;124m'[39m)
 
 [1;31mNameError[0m: name 'csv_file_path' is not defined
 
