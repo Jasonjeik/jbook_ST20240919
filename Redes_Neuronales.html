@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -241,7 +241,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/Jasonjeik/jbook_ST20240919" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -258,7 +258,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FRedes_Neuronales.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Jasonjeik/jbook_ST20240919/issues/new?title=Issue%20on%20page%20%2FRedes_Neuronales.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -969,34 +969,24 @@ Jarque-Bera Test p-value: 1.0927847573642137e-215
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
-<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">dump</span><span class="p">,</span> <span class="n">load</span>
-<span class="kn">import</span> <span class="nn">uuid</span>
-<span class="kn">import</span> <span class="nn">tensorflow.keras.backend</span> <span class="k">as</span> <span class="nn">K</span>
-
-<span class="k">def</span> <span class="nf">select_best_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_type</span><span class="p">,</span> <span class="n">neurons</span><span class="p">,</span> <span class="n">dropout</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">return_history</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">serie</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">select_best_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_type</span><span class="p">,</span> <span class="n">neurons</span><span class="p">,</span> <span class="n">dropout</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">return_history</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span><span class="n">serie</span><span class="p">):</span>
     <span class="c1"># Crear subdirectorio para el tamaño de ventana específico</span>
-    <span class="n">model_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;modelos_</span><span class="si">{</span><span class="n">serie</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;models_window_</span><span class="si">{</span><span class="n">window_size</span><span class="si">}</span><span class="s1">_tau_</span><span class="si">{</span><span class="n">tau</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">model_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;modelos_</span><span class="si">{</span><span class="n">serie</span><span class="si">}</span><span class="s1">/models_window_</span><span class="si">{</span><span class="n">window_size</span><span class="si">}</span><span class="s1">_tau_</span><span class="si">{</span><span class="n">tau</span><span class="si">}</span><span class="s1">&#39;</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="c1"># Generar un nombre de archivo único para cada modelo basado en los parámetros del modelo</span>
-    <span class="n">unique_id</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>  <span class="c1"># Generar un UUID único para el nombre del archivo</span>
-    <span class="n">base_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model_type</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">neurons</span><span class="si">}</span><span class="s1">neurons_</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span><span class="si">}</span><span class="s1">dropout_batch</span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s1">_window</span><span class="si">{</span><span class="n">window_size</span><span class="si">}</span><span class="s1">_tau</span><span class="si">{</span><span class="n">tau</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">unique_id</span><span class="si">}</span><span class="s1">&#39;</span>
-    <span class="n">model_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_filename</span><span class="si">}</span><span class="s1">_best_model.h5&#39;</span><span class="p">)</span>
+    <span class="c1"># Nombre lógico del archivo basado en los parámetros del modelo</span>
+    <span class="n">base_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model_type</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">neurons</span><span class="si">}</span><span class="s1">neurons_</span><span class="si">{</span><span class="n">dropout</span><span class="si">}</span><span class="s1">dropout_batch</span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s1">_window</span><span class="si">{</span><span class="n">window_size</span><span class="si">}</span><span class="s1">_tau</span><span class="si">{</span><span class="n">tau</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">model_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_filename</span><span class="si">}</span><span class="s1">_best_model.keras&#39;</span><span class="p">)</span>
     <span class="n">history_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">base_filename</span><span class="si">}</span><span class="s1">_history.joblib&#39;</span><span class="p">)</span>
     
-    <span class="c1"># Verificar y eliminar el archivo si ya existe para evitar conflictos</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_filename</span><span class="p">):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">model_filename</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Archivo existente eliminado: </span><span class="si">{</span><span class="n">model_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
+    <span class="c1"># Callback para guardar el mejor modelo</span>
     <span class="n">save_best</span> <span class="o">=</span> <span class="n">ModelCheckpoint</span><span class="p">(</span><span class="n">model_filename</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_mean_squared_error&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                                 <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="n">save_weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     
     <span class="c1"># Callback para calcular R2 manual al final de cada época</span>
     <span class="n">manual_r2_callback</span> <span class="o">=</span> <span class="n">ManualR2Callback</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
     
+    <span class="c1"># Variable para decidir si entrenar un nuevo modelo</span>
     <span class="n">load_new_model</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">best_val_mse</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
     <span class="n">existing_epochs</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1008,12 +998,14 @@ Jarque-Bera Test p-value: 1.0927847573642137e-215
         <span class="k">if</span> <span class="s1">&#39;val_mean_squared_error&#39;</span> <span class="ow">in</span> <span class="n">history_data</span><span class="p">:</span>
             <span class="n">best_val_mse</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">history_data</span><span class="p">[</span><span class="s1">&#39;val_mean_squared_error&#39;</span><span class="p">])</span>
 
+        <span class="c1"># Comprobar si el modelo existente tiene mejor val_mean_squared_error y mayor o igual épocas</span>
         <span class="k">if</span> <span class="n">best_val_mse</span> <span class="o">&lt;=</span> <span class="n">history_data</span><span class="p">[</span><span class="s1">&#39;val_mean_squared_error&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">existing_epochs</span> <span class="o">&gt;=</span> <span class="n">epochs</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Modelo previo con mejor val_mean_squared_error (</span><span class="si">{</span><span class="n">best_val_mse</span><span class="si">}</span><span class="s2">) y más épocas (</span><span class="si">{</span><span class="n">existing_epochs</span><span class="si">}</span><span class="s2">). No se reemplazará.&quot;</span><span class="p">)</span>
             <span class="n">load_new_model</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Se entrenará con </span><span class="si">{</span><span class="n">epochs</span><span class="si">}</span><span class="s2"> y actualizará si mejora el rendimiento.&quot;</span><span class="p">)</span>
 
+    <span class="c1"># Entrenar y guardar el modelo si se requiere uno nuevo</span>
     <span class="k">if</span> <span class="n">load_new_model</span><span class="p">:</span>
         <span class="c1"># Entrenar el modelo y guardar el historial</span>
         <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span>
@@ -1022,29 +1014,28 @@ Jarque-Bera Test p-value: 1.0927847573642137e-215
         
         <span class="c1"># Guardar el historial en el archivo .joblib</span>
         <span class="n">history_data</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span>
+        
+        <span class="c1"># Evaluar el mejor modelo en el conjunto de prueba</span>
         <span class="n">test_results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">test_metrics</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s1">&#39;test_</span><span class="si">{</span><span class="n">metric</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">metrics_names</span><span class="p">,</span> <span class="n">test_results</span><span class="p">)}</span>
         
+        <span class="c1"># Agregar métricas de prueba al historial</span>
         <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">test_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">history_data</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
         
+        <span class="c1"># Guardar el historial con las métricas de prueba</span>
         <span class="n">dump</span><span class="p">(</span><span class="n">history_data</span><span class="p">,</span> <span class="n">history_filename</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El entrenamiento se ha completado y el historial se guardó en &#39;</span><span class="si">{</span><span class="n">history_filename</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Limpiar la sesión para evitar conflictos en la memoria</span>
-    <span class="n">K</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
 
     <span class="c1"># Verificar y cargar el mejor modelo guardado</span>
     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_filename</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El mejor modelo guardado está en &#39;</span><span class="si">{</span><span class="n">model_filename</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
-        <span class="n">best_model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">model_filename</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="p">{</span>
-            <span class="s1">&#39;root_mean_squared_error&#39;</span><span class="p">:</span> <span class="n">root_mean_squared_error</span><span class="p">,</span>
-            <span class="s1">&#39;r_squared&#39;</span><span class="p">:</span> <span class="n">r_squared</span>
-        <span class="p">})</span>
+        <span class="n">best_model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="n">model_filename</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No se encontró un modelo previo con mejor val_mean_squared_error.&quot;</span><span class="p">)</span>
         <span class="n">best_model</span> <span class="o">=</span> <span class="n">model</span>
 
+    <span class="c1"># Retornar el mejor modelo y el historial, si es necesario</span>
     <span class="k">if</span> <span class="n">return_history</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">best_model</span><span class="p">,</span> <span class="n">history_data</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1151,16 +1142,12 @@ Jarque-Bera Test p-value: 1.0927847573642137e-215
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Evaluando: Neuronas: 200, Dropout: 0.2, Batchsize: 16
 Epoch 1/30
 
-Epoch 1: val_mean_squared_error improved from inf to 0.62615, saving model to modelos_discharge\models_window_7_tau_1\BESN_200neurons_0.2dropout_batch16_window7_tau1_321fe169-4212-43f2-8ff6-b68636bca900_best_model.h5
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\FBA\miniconda3\envs\st_2024_03\lib\site-packages\keras\src\engine\training.py:3000: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save(&#39;my_model.keras&#39;)`.
-  saving_api.save_model(
+Epoch 1: val_mean_squared_error improved from inf to 1.11715, saving model to modelos_discharge/models_window_7_tau_1\BESN_200neurons_0.2dropout_batch16_window7_tau1_best_model.keras
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">47</span><span class="p">],</span> <span class="n">line</span> <span class="mi">72</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">52</span><span class="p">],</span> <span class="n">line</span> <span class="mi">72</span>
 <span class="g g-Whitespace">     </span><span class="mi">65</span>             <span class="n">model_BESN</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span>
 <span class="g g-Whitespace">     </span><span class="mi">66</span>                 <span class="s1">&#39;mean_absolute_error&#39;</span><span class="p">,</span>            <span class="c1"># MAE</span>
 <span class="g g-Whitespace">     </span><span class="mi">67</span>                 <span class="s1">&#39;mean_absolute_percentage_error&#39;</span><span class="p">,</span> <span class="c1"># MAPE</span>
@@ -1174,15 +1161,15 @@ Epoch 1: val_mean_squared_error improved from inf to 0.62615, saving model to mo
 <span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="c1"># Almacenar las predicciones en el diccionario de predicciones</span>
 <span class="g g-Whitespace">     </span><span class="mi">78</span> <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;BESN&#39;</span><span class="p">],</span> <span class="p">[</span><span class="n">best_model_BESN</span><span class="p">]):</span>
 
-<span class="nn">Cell In[46], line 48,</span> in <span class="ni">select_best_model</span><span class="nt">(model, model_type, neurons, dropout, batch_size, epochs, X_train, y_train, X_val, y_val, X_test, y_test, return_history, window_size, tau, serie)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Se entrenará con </span><span class="si">{</span><span class="n">epochs</span><span class="si">}</span><span class="s2"> y actualizará si mejora el rendimiento.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="k">if</span> <span class="n">load_new_model</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="c1"># Entrenar el modelo y guardar el historial</span>
-<span class="ne">---&gt; </span><span class="mi">48</span>     <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span>                         <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">save_best</span><span class="p">,</span> <span class="n">manual_r2_callback</span><span class="p">],</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">),</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>                         <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span>     <span class="c1"># Guardar el historial en el archivo .joblib</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">history_data</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span>
+<span class="nn">Cell In[51], line 40,</span> in <span class="ni">select_best_model</span><span class="nt">(model, model_type, neurons, dropout, batch_size, epochs, X_train, y_train, X_val, y_val, X_test, y_test, return_history, window_size, tau, serie)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="c1"># Entrenar y guardar el modelo si se requiere uno nuevo</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="k">if</span> <span class="n">load_new_model</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="c1"># Entrenar el modelo y guardar el historial</span>
+<span class="ne">---&gt; </span><span class="mi">40</span>     <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>                         <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">save_best</span><span class="p">,</span> <span class="n">manual_r2_callback</span><span class="p">],</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>                         <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="c1"># Guardar el historial en el archivo .joblib</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="n">history_data</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span>
 
 <span class="nn">File c:\Users\FBA\miniconda3\envs\st_2024_03\lib\site-packages\keras\src\utils\traceback_utils.py:70,</span> in <span class="ni">filter_traceback.&lt;locals&gt;.error_handler</span><span class="nt">(*args, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">67</span>     <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
@@ -1192,37 +1179,18 @@ Epoch 1: val_mean_squared_error improved from inf to 0.62615, saving model to mo
 <span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="k">finally</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">72</span>     <span class="k">del</span> <span class="n">filtered_tb</span>
 
-<span class="nn">File c:\Users\FBA\miniconda3\envs\st_2024_03\lib\site-packages\h5py\_hl\files.py:562,</span> in <span class="ni">File.__init__</span><span class="nt">(self, name, mode, driver, libver, userblock_size, swmr, rdcc_nslots, rdcc_nbytes, rdcc_w0, track_order, fs_strategy, fs_persist, fs_threshold, fs_page_size, page_buf_size, min_meta_keep, min_raw_keep, locking, alignment_threshold, alignment_interval, meta_block_size, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">553</span>     <span class="n">fapl</span> <span class="o">=</span> <span class="n">make_fapl</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">libver</span><span class="p">,</span> <span class="n">rdcc_nslots</span><span class="p">,</span> <span class="n">rdcc_nbytes</span><span class="p">,</span> <span class="n">rdcc_w0</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span>                      <span class="n">locking</span><span class="p">,</span> <span class="n">page_buf_size</span><span class="p">,</span> <span class="n">min_meta_keep</span><span class="p">,</span> <span class="n">min_raw_keep</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span>                      <span class="n">alignment_threshold</span><span class="o">=</span><span class="n">alignment_threshold</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">556</span>                      <span class="n">alignment_interval</span><span class="o">=</span><span class="n">alignment_interval</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">557</span>                      <span class="n">meta_block_size</span><span class="o">=</span><span class="n">meta_block_size</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">558</span>                      <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">559</span>     <span class="n">fcpl</span> <span class="o">=</span> <span class="n">make_fcpl</span><span class="p">(</span><span class="n">track_order</span><span class="o">=</span><span class="n">track_order</span><span class="p">,</span> <span class="n">fs_strategy</span><span class="o">=</span><span class="n">fs_strategy</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span>                      <span class="n">fs_persist</span><span class="o">=</span><span class="n">fs_persist</span><span class="p">,</span> <span class="n">fs_threshold</span><span class="o">=</span><span class="n">fs_threshold</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">561</span>                      <span class="n">fs_page_size</span><span class="o">=</span><span class="n">fs_page_size</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">562</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">make_fid</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">userblock_size</span><span class="p">,</span> <span class="n">fapl</span><span class="p">,</span> <span class="n">fcpl</span><span class="p">,</span> <span class="n">swmr</span><span class="o">=</span><span class="n">swmr</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">libver</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">565</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_libver</span> <span class="o">=</span> <span class="n">libver</span>
+<span class="nn">File c:\Users\FBA\miniconda3\envs\st_2024_03\lib\site-packages\keras\src\saving\saving_api.py:142,</span> in <span class="ni">save_model</span><span class="nt">(model, filepath, overwrite, save_format, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span>             <span class="k">return</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">142</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span>             <span class="s2">&quot;The following argument(s) are not supported &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>             <span class="sa">f</span><span class="s2">&quot;with the native Keras format: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>     <span class="n">saving_lib</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">filepath</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>     <span class="c1"># Legacy case</span>
 
-<span class="nn">File c:\Users\FBA\miniconda3\envs\st_2024_03\lib\site-packages\h5py\_hl\files.py:241,</span> in <span class="ni">make_fid</span><span class="nt">(name, mode, userblock_size, fapl, fcpl, swmr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">h5f</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">h5f</span><span class="o">.</span><span class="n">ACC_EXCL</span><span class="p">,</span> <span class="n">fapl</span><span class="o">=</span><span class="n">fapl</span><span class="p">,</span> <span class="n">fcpl</span><span class="o">=</span><span class="n">fcpl</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span> <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">241</span>     <span class="n">fid</span> <span class="o">=</span> <span class="n">h5f</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">h5f</span><span class="o">.</span><span class="n">ACC_TRUNC</span><span class="p">,</span> <span class="n">fapl</span><span class="o">=</span><span class="n">fapl</span><span class="p">,</span> <span class="n">fcpl</span><span class="o">=</span><span class="n">fcpl</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span> <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>     <span class="c1"># Open in append mode (read/write).</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>     <span class="c1"># If that fails, create a new file only if it won&#39;t clobber an</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span>     <span class="c1"># existing one (ACC_EXCL)</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span>     <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">File h5py\\_objects.pyx:54,</span> in <span class="ni">h5py._objects.with_phil.wrapper</span><span class="nt">()</span>
-
-<span class="nn">File h5py\\_objects.pyx:55,</span> in <span class="ni">h5py._objects.with_phil.wrapper</span><span class="nt">()</span>
-
-<span class="nn">File h5py\\h5f.pyx:122,</span> in <span class="ni">h5py.h5f.create</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] Unable to synchronously create file (unable to open file: name = &#39;modelos_discharge\models_window_7_tau_1\BESN_200neurons_0.2dropout_batch16_window7_tau1_321fe169-4212-43f2-8ff6-b68636bca900_best_model.h5&#39;, errno = 2, error message = &#39;No such file or directory&#39;, flags = 13, o_flags = 302)
+<span class="ne">ValueError</span>: The following argument(s) are not supported with the native Keras format: [&#39;options&#39;]
 </pre></div>
 </div>
 </div>
