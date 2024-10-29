@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,6 +60,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Redes_Neuronales';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -721,25 +723,57 @@ Jarque-Bera Test p-value: 1.0927847573642137e-215
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="besn">
 <h1>BESN<a class="headerlink" href="#besn" title="Link to this heading">#</a></h1>
+<p>La base del BESN es el ESN, es un tipo de red neuronal que consta de una capa de entrada, una capa del reservorio que y una caoa de salida</p>
+<p>Para la entrada dada, el estado del reservorio x y la salida deseada t, la suma de cuadrados del error</p>
+<p><span class="math notranslate nohighlight">\(E_D = \frac{1}{2} \sum_{i=1}^n \left( f(z_i; W^{\text{out}}) - t_i \right)^2\)</span></p>
+<p>se selecciona como la funcion de velaución de rendiemiento.</p>
+<p>el término de regularización  se introduce en la función de evaluación del rendimiento en base a la técnica de regularización. <span class="math notranslate nohighlight">\(E_W = \frac{1}{2} \sum_{i=1}^L \left( W^{\text{out}} \right)^2\)</span></p>
+<p>la función de error se puede obtener de la siguiente manera:</p>
+<p><span class="math notranslate nohighlight">\(F(W^{\text{out}}) = \beta E_D + \alpha E_W\)</span></p>
+<p>Donde alpha y beta son hiperparametros de y n es el tamaño de la muestra</p>
+<p>En el proceso de entrenamiento los datos se muestran indicados de la siguiente manera:
+<span class="math notranslate nohighlight">\(\{ (u_i, t_i) \mid i = 1, \dots, T \}\)</span></p>
+<p>Despues de haber establecer al entrada en el estado del reservorio x y la salida deseada en t, podemos obtener una serie de pares de datos</p>
+<p><span class="math notranslate nohighlight">\(\{ (\mathbf{z}_i, t_i) \mid i = 1, \dots, n \}\)</span></p>
+<p>Luego la matriz de pesos de salida se estima mediante el método bayesiano</p>
+<p>La teoría Bayesiana se centra en la distribución de probabilidad de los pesos.  El proceso de aprendizaje convencional comienza con una distribución de probabilidad previa adecuada de los pesos de salida Pwout, antes de que se obtengan los datos observados. Dado el conjunto de muestras, se utiliza el teorema de Bayes para escribir una expresión de la distribución de probabilidad posterior para los pesos de salida de la siguiente manera:</p>
+<div class="math notranslate nohighlight">
+\[
+p(\mathbf{W}^{\text{out}} \mid D) = \frac{p(D \mid \mathbf{W}^{\text{out}}) \, p(\mathbf{W}^{\text{out}})}{p(D)}
+\]</div>
+<p>donde $<span class="math notranslate nohighlight">\(
+p(\mathbf{W}^{\text{out}} \mid D)\)</span>$  es la función de verosimilitud; el denominador p(D) es
+un factor de normalización.</p>
+<div class="math notranslate nohighlight">
+\[
+p(\mathbf{W}^{\text{out}} \mid D) = \frac{1}{Z_M(\alpha, \beta)} \exp(-\beta E_D - \alpha E_W) = \frac{1}{Z_M} \exp[-F(\mathbf{W}^{\text{out}})]
+\]</div>
+<p>donde ZM(α,β) no están relacionado con Wout Por lo tanto, los pesos óptimos de salida de la red se pueden entrenar minimizando la función de error F(Wout)  o maximizando la distribución posterior  <span class="math notranslate nohighlight">\(p(\mathbf{W}^{\text{out}} \mid D)\)</span></p>
+<p>La BESN tiene dos hiperparámetros, de los cuales αalpha controla la distribución previa de los pesos de salida, y betaβ controla la distribución
+de la función de verosimilitud. Basado en la aproximación de Laplace,  la distribución de probabilidad posterior de los pesos de salida de la red se puede escribir aproximadamente como:</p>
+<p><span class="math notranslate nohighlight">\(p(w \mid D) \approx p(w \mid \alpha^*, \beta^*, D)\)</span></p>
+<p>Donde \alpha^* y \beta^* son los valores óptimos. Por lo tanto, se necesitan alpha<em>α∗ y beta</em>β∗ para maximizar la probabilidad posterior de los pesos de salida. Según , los valores óptimos de los hiperparámetros son:
+$<span class="math notranslate nohighlight">\(
+\alpha^* = \frac{\gamma}{2 E_W}, \quad \beta^* = \frac{n - \gamma}{2 E_D} \tag{7}
+\)</span>$</p>
+<p>donde
+$<span class="math notranslate nohighlight">\(
+\gamma = \sum_{i=1}^L \frac{\lambda_i}{\lambda_i + \alpha}
+\)</span>$</p>
+<p>y λi es el valor propio de la matriz Hessiana de la función de error
+EDE_DED.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sinteis del modelo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="c1"># Sinteis del modelo</span>
 <span class="n">image_path</span> <span class="o">=</span> <span class="s2">&quot;image.png&quot;</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">image_path</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Sinteis del modelo</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">image_path</span> <span class="o">=</span> <span class="s2">&quot;image.png&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">image_path</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;Image&#39; is not defined
-</pre></div>
-</div>
+<img alt="_images/3f65f7be6ecb26c2c64c9ad06b6fb8cab3832fef402f58386b9449b459adfa2c.png" src="_images/3f65f7be6ecb26c2c64c9ad06b6fb8cab3832fef402f58386b9449b459adfa2c.png" />
 </div>
 </div>
 <div class="cell docutils container">
