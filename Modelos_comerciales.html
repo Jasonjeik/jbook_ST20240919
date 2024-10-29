@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -60,9 +63,11 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Modelos_comerciales';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MODELOS DE REDES" href="Redes_Neuronales.html" />
     <link rel="prev" title="ANÁLISIS EXPLORATORIO DE DATOS" href="EDA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -98,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -106,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -123,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -153,21 +147,17 @@
     
     
     <img src="_static/Logo.jpg" class="logo__image only-light" alt="jbook_ST20240919 - Home"/>
-    <script>document.write(`<img src="_static/Logo.jpg" class="logo__image only-dark" alt="jbook_ST20240919 - Home"/>`);</script>
+    <img src="_static/Logo.jpg" class="logo__image only-dark pst-js-only" alt="jbook_ST20240919 - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -184,10 +174,18 @@
 
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Tarea 1: Series Tiempo dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Bonificacion_1.html">Bonificación Práctica</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Parcial.html">Deep Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Parcial_Intro.html">Examen Final</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Parcial_Punto_1.html">Punto 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Parcial_Punto_2.html">Implementación de Modelos de Suavización Exponencial, ARIMA y GARCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Parcial_Punto_3.html">Punto 3. Deep Learning</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Proyecto_final.html">Proyecto Final Series de Tiempo</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="EDA.html">ANÁLISIS EXPLORATORIO DE DATOS</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Modelos Comerciales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Redes_Neuronales.html">MODELOS DE REDES</a></li>
+
+
 </ul>
 </details></li>
 </ul>
@@ -344,25 +342,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -378,6 +370,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separacion-de-training-validacion-y-test">Separación de training validación y test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pronosticos">Pronosticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suavizacion-exponencial-de-primer-orden-ses">Suavización exponencial de primer orden SES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holt-winters">Holt winters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima">SARIMA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validaciones">Validaciones</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -389,6 +396,878 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modelos-comerciales">
 <h1>Modelos Comerciales<a class="headerlink" href="#modelos-comerciales" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-learn in c:\users\fba\miniconda3\envs\st_2024_03\lib\site-packages (1.3.2)
+Requirement already satisfied: numpy&lt;2.0,&gt;=1.17.3 in c:\users\fba\miniconda3\envs\st_2024_03\lib\site-packages (from scikit-learn) (1.24.3)
+Requirement already satisfied: scipy&gt;=1.5.0 in c:\users\fba\miniconda3\envs\st_2024_03\lib\site-packages (from scikit-learn) (1.10.1)
+Requirement already satisfied: joblib&gt;=1.1.1 in c:\users\fba\miniconda3\envs\st_2024_03\lib\site-packages (from scikit-learn) (1.4.2)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in c:\users\fba\miniconda3\envs\st_2024_03\lib\site-packages (from scikit-learn) (3.5.0)
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;river_aire_discharge_timeseries.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="c1">#.sort_values(&#39;Date&#39;)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Date  SF_absolute_humidity  SF_relative_humidity  \
+0 2017-11-14                   8.3                  86.2   
+1 2017-11-15                   7.6                  87.0   
+2 2017-11-16                   6.4                  78.8   
+3 2017-11-17                   5.4                  77.3   
+4 2017-11-18                   5.6                  74.0   
+
+   SF_mean_air_temperature  SF_atmospheric_pressure  SF_potential_evaporation  \
+0                     10.4                   1013.1                       0.4   
+1                      8.8                   1016.3                       0.4   
+2                      7.7                   1014.7                       0.6   
+3                      5.6                   1019.7                       0.6   
+4                      6.5                   1013.1                       0.7   
+
+   SF_net_radiation  SF_volumetric_water_content  SF_soil_temperature  \
+0               0.8                         32.4                  6.9   
+1               1.1                         31.3                  8.1   
+2              -2.7                         31.8                  7.1   
+3              -2.3                         32.5                  4.9   
+4              -2.3                         30.4                  5.2   
+
+   SF_wind_speed  ...  river_level_snaygill  river_level_kildwick  \
+0            2.9  ...                 0.417                 0.366   
+1            1.6  ...                 0.695                 0.496   
+2            3.2  ...                 0.715                 0.497   
+3            2.9  ...                 0.631                 0.476   
+4            3.4  ...                 0.534                 0.430   
+
+   river_level_kirkstall  headingley_precipitation  malham_precipitation  \
+0                  1.514                       1.4                   9.6   
+1                  1.545                       0.0                   3.8   
+2                  1.544                       0.4                   1.6   
+3                  1.562                       0.0                   0.8   
+4                  1.536                       0.0                   0.0   
+
+   skipton_snaygill_precipitation  farnley_hall_precipitation  \
+0                             0.8                         0.8   
+1                             0.8                         0.0   
+2                             2.4                         0.2   
+3                             0.4                         0.0   
+4                             0.0                         0.0   
+
+   embsay_precipitation  silsden_precipitation  lower_laithe_precipitation  
+0                   6.6                    1.2                         1.0  
+1                   2.2                    1.2                         1.4  
+2                   1.6                    1.0                         2.0  
+3                   0.2                    0.4                         0.2  
+4                   0.0                    0.0                         0.2  
+
+[5 rows x 24 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="separacion-de-training-validacion-y-test">
+<h2>Separación de training validación y test<a class="headerlink" href="#separacion-de-training-validacion-y-test" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Date  SF_absolute_humidity  SF_relative_humidity  \
+0    2017-11-14                   8.3                  86.2   
+1    2017-11-15                   7.6                  87.0   
+2    2017-11-16                   6.4                  78.8   
+3    2017-11-17                   5.4                  77.3   
+4    2017-11-18                   5.6                  74.0   
+...         ...                   ...                   ...   
+1259 2021-04-26                   5.1                  67.2   
+1260 2021-04-27                   6.2                  76.9   
+1261 2021-04-28                   5.2                  69.8   
+1262 2021-04-29                   5.2                  76.5   
+1263 2021-04-30                   5.5                  81.4   
+
+      SF_mean_air_temperature  SF_atmospheric_pressure  \
+0                        10.4                   1013.1   
+1                         8.8                   1016.3   
+2                         7.7                   1014.7   
+3                         5.6                   1019.7   
+4                         6.5                   1013.1   
+...                       ...                      ...   
+1259                      7.5                   1014.9   
+1260                      7.7                   1003.5   
+1261                      6.8                   1004.4   
+1262                      5.1                   1006.3   
+1263                      5.1                   1009.4   
+
+      SF_potential_evaporation  SF_net_radiation  SF_volumetric_water_content  \
+0                          0.4               0.8                         32.4   
+1                          0.4               1.1                         31.3   
+2                          0.6              -2.7                         31.8   
+3                          0.6              -2.3                         32.5   
+4                          0.7              -2.3                         30.4   
+...                        ...               ...                          ...   
+1259                       2.8              10.3                         21.9   
+1260                       1.5               5.4                         22.7   
+1261                       1.8               5.3                         25.2   
+1262                       1.6               6.7                         22.9   
+1263                       1.6               8.0                         22.3   
+
+      SF_soil_temperature  SF_wind_speed  ...  river_level_snaygill  \
+0                     6.9            2.9  ...                 0.417   
+1                     8.1            1.6  ...                 0.695   
+2                     7.1            3.2  ...                 0.715   
+3                     4.9            2.9  ...                 0.631   
+4                     5.2            3.4  ...                 0.534   
+...                   ...            ...  ...                   ...   
+1259                  9.3            2.3  ...                 0.171   
+1260                  9.6            2.6  ...                 0.175   
+1261                  9.1            3.1  ...                 0.176   
+1262                  8.5            2.9  ...                 0.169   
+1263                  8.2            2.2  ...                 0.166   
+
+      river_level_kildwick  river_level_kirkstall  headingley_precipitation  \
+0                    0.366                  1.514                       1.4   
+1                    0.496                  1.545                       0.0   
+2                    0.497                  1.544                       0.4   
+3                    0.476                  1.562                       0.0   
+4                    0.430                  1.536                       0.0   
+...                    ...                    ...                       ...   
+1259                 0.243                  1.466                       0.0   
+1260                 0.244                  1.563                      13.0   
+1261                 0.251                  1.524                       0.6   
+1262                 0.249                  1.471                       1.0   
+1263                 0.246                  1.462                       0.0   
+
+      malham_precipitation  skipton_snaygill_precipitation  \
+0                      9.6                             0.8   
+1                      3.8                             0.8   
+2                      1.6                             2.4   
+3                      0.8                             0.4   
+4                      0.0                             0.0   
+...                    ...                             ...   
+1259                   0.0                             0.0   
+1260                   1.4                             0.0   
+1261                   0.4                             0.0   
+1262                   0.0                             0.0   
+1263                   0.0                             0.2   
+
+      farnley_hall_precipitation  embsay_precipitation  silsden_precipitation  \
+0                            0.8                   6.6                    1.2   
+1                            0.0                   2.2                    1.2   
+2                            0.2                   1.6                    1.0   
+3                            0.0                   0.2                    0.4   
+4                            0.0                   0.0                    0.0   
+...                          ...                   ...                    ...   
+1259                         0.0                   0.0                    0.0   
+1260                        12.6                   2.6                    0.2   
+1261                         0.2                   0.2                    0.0   
+1262                         0.6                   0.0                    0.0   
+1263                         0.0                   0.0                    1.6   
+
+      lower_laithe_precipitation  
+0                            1.0  
+1                            1.4  
+2                            2.0  
+3                            0.2  
+4                            0.2  
+...                          ...  
+1259                         0.0  
+1260                         7.4  
+1261                         0.0  
+1262                         0.0  
+1263                         0.0  
+
+[1264 rows x 24 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># segmentación de la serie</span>
+<span class="n">train_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>  <span class="c1"># Usar el 70% para entrenamiento</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">train_size</span><span class="p">]</span>  <span class="c1"># Datos de entrenamiento: desde el inicio hasta el 70%</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>   <span class="c1"># Datos de prueba: del 70% en adelante</span>
+
+<span class="c1"># Verificar las primeras filas de cada conjunto para asegurar que la división es correcta</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Date  SF_absolute_humidity  SF_relative_humidity  \
+0 2017-11-14                   8.3                  86.2   
+1 2017-11-15                   7.6                  87.0   
+2 2017-11-16                   6.4                  78.8   
+3 2017-11-17                   5.4                  77.3   
+4 2017-11-18                   5.6                  74.0   
+
+   SF_mean_air_temperature  SF_atmospheric_pressure  SF_potential_evaporation  \
+0                     10.4                   1013.1                       0.4   
+1                      8.8                   1016.3                       0.4   
+2                      7.7                   1014.7                       0.6   
+3                      5.6                   1019.7                       0.6   
+4                      6.5                   1013.1                       0.7   
+
+   SF_net_radiation  SF_volumetric_water_content  SF_soil_temperature  \
+0               0.8                         32.4                  6.9   
+1               1.1                         31.3                  8.1   
+2              -2.7                         31.8                  7.1   
+3              -2.3                         32.5                  4.9   
+4              -2.3                         30.4                  5.2   
+
+   SF_wind_speed  ...  river_level_snaygill  river_level_kildwick  \
+0            2.9  ...                 0.417                 0.366   
+1            1.6  ...                 0.695                 0.496   
+2            3.2  ...                 0.715                 0.497   
+3            2.9  ...                 0.631                 0.476   
+4            3.4  ...                 0.534                 0.430   
+
+   river_level_kirkstall  headingley_precipitation  malham_precipitation  \
+0                  1.514                       1.4                   9.6   
+1                  1.545                       0.0                   3.8   
+2                  1.544                       0.4                   1.6   
+3                  1.562                       0.0                   0.8   
+4                  1.536                       0.0                   0.0   
+
+   skipton_snaygill_precipitation  farnley_hall_precipitation  \
+0                             0.8                         0.8   
+1                             0.8                         0.0   
+2                             2.4                         0.2   
+3                             0.4                         0.0   
+4                             0.0                         0.0   
+
+   embsay_precipitation  silsden_precipitation  lower_laithe_precipitation  
+0                   6.6                    1.2                         1.0  
+1                   2.2                    1.2                         1.4  
+2                   1.6                    1.0                         2.0  
+3                   0.2                    0.4                         0.2  
+4                   0.0                    0.0                         0.2  
+
+[5 rows x 24 columns]
+          Date  SF_absolute_humidity  SF_relative_humidity  \
+884 2020-04-16                   5.8                  64.1   
+885 2020-04-17                   5.9                  72.7   
+886 2020-04-18                   5.7                  72.0   
+887 2020-04-19                   5.2                  67.9   
+888 2020-04-20                   5.2                  64.7   
+
+     SF_mean_air_temperature  SF_atmospheric_pressure  \
+884                     10.3                   1012.3   
+885                      7.8                   1014.9   
+886                      7.4                   1014.8   
+887                      7.8                   1018.0   
+888                      8.4                   1017.9   
+
+     SF_potential_evaporation  SF_net_radiation  SF_volumetric_water_content  \
+884                       3.3              10.2                         20.6   
+885                       2.4               9.5                         20.7   
+886                       1.7               5.0                         20.0   
+887                       3.2              11.3                         19.8   
+888                       3.3              11.0                         19.0   
+
+     SF_soil_temperature  SF_wind_speed  ...  river_level_snaygill  \
+884                 10.8            2.7  ...                 0.120   
+885                 10.6            3.4  ...                 0.128   
+886                  9.9            2.6  ...                 0.140   
+887                 10.0            3.0  ...                 0.120   
+888                  9.9            4.1  ...                 0.110   
+
+     river_level_kildwick  river_level_kirkstall  headingley_precipitation  \
+884                 0.250                  1.486                       0.0   
+885                 0.245                  1.486                       0.0   
+886                 0.240                  1.484                       0.0   
+887                 0.239                  1.485                       0.0   
+888                 0.234                  1.481                       0.0   
+
+     malham_precipitation  skipton_snaygill_precipitation  \
+884                   0.0                             0.0   
+885                   0.0                             0.0   
+886                   0.0                             0.0   
+887                   0.0                             0.0   
+888                   0.0                             0.0   
+
+     farnley_hall_precipitation  embsay_precipitation  silsden_precipitation  \
+884                         0.0                   0.0                    0.0   
+885                         0.0                   0.0                    0.0   
+886                         0.0                   0.0                    0.0   
+887                         0.0                   0.0                    0.0   
+888                         0.0                   0.0                    0.0   
+
+     lower_laithe_precipitation  
+884                         0.0  
+885                         0.4  
+886                         0.0  
+887                         0.0  
+888                         0.0  
+
+[5 rows x 24 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se realizá una serparación de los datos, donde el 70% se usan para train, el 30% se usan para test</p>
+</section>
+<section id="pronosticos">
+<h2>Pronosticos<a class="headerlink" href="#pronosticos" title="Link to this heading">#</a></h2>
+<section id="suavizacion-exponencial-de-primer-orden-ses">
+<h3>Suavización exponencial de primer orden SES<a class="headerlink" href="#suavizacion-exponencial-de-primer-orden-ses" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.holtwinters</span> <span class="kn">import</span> <span class="n">SimpleExpSmoothing</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Función mejorada para probar diferentes valores de alpha y calcular métricas adicionales</span>
+<span class="k">def</span> <span class="nf">firstsmoothstats</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">):</span>
+    <span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+    <span class="n">best_mae</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+    <span class="n">best_alpha</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">best_metrics</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;discharge_armley&#39;</span> <span class="ow">in</span> <span class="n">train_data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">train_series</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;La columna &#39;discharge_armley&#39; no se encontró en train_data.&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Ajustar el modelo a los datos de entrenamiento</span>
+        <span class="n">ses_model</span> <span class="o">=</span> <span class="n">SimpleExpSmoothing</span><span class="p">(</span><span class="n">train_series</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">smoothing_level</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">optimized</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
+        <span class="c1"># Hacer predicciones para comparar con los últimos valores del entrenamiento</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">ses_model</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">[</span><span class="o">-</span><span class="n">step</span><span class="p">:]</span>  <span class="c1"># Comparar con el final de la serie de entrenamiento</span>
+        
+        <span class="c1"># Calcular el error usando los valores reales correspondientes</span>
+        <span class="k">if</span> <span class="s1">&#39;discharge_armley&#39;</span> <span class="ow">in</span> <span class="n">train_data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">y_true</span> <span class="o">=</span> <span class="n">train_series</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+            <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+            <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+            <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+            <span class="n">mape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_true</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;La columna &#39;discharge_armley&#39; no se encontró en train_data.&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Guardar el mejor alpha basado en el MAE</span>
+        <span class="k">if</span> <span class="n">mae</span> <span class="o">&lt;</span> <span class="n">best_mae</span><span class="p">:</span>
+            <span class="n">best_alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+            <span class="n">best_mae</span> <span class="o">=</span> <span class="n">mae</span>
+            <span class="n">best_metrics</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="n">mae</span><span class="p">,</span>
+                <span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">mse</span><span class="p">,</span>
+                <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="n">rmse</span><span class="p">,</span>
+                <span class="s1">&#39;MAPE&#39;</span><span class="p">:</span> <span class="n">mape</span><span class="p">,</span>
+                <span class="s1">&#39;R²&#39;</span><span class="p">:</span> <span class="n">r2</span>
+            <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">best_alpha</span><span class="p">,</span> <span class="n">best_mae</span><span class="p">,</span> <span class="n">best_metrics</span>
+
+<span class="c1"># Llamar a la función para obtener el mejor resultado</span>
+<span class="n">best_alpha</span><span class="p">,</span> <span class="n">best_mae</span><span class="p">,</span> <span class="n">best_metrics</span> <span class="o">=</span> <span class="n">firstsmoothstats</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mejor alpha: </span><span class="si">{</span><span class="n">best_alpha</span><span class="si">}</span><span class="s2">, MAE: </span><span class="si">{</span><span class="n">best_mae</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Métricas adicionales:&quot;</span><span class="p">,</span> <span class="n">best_metrics</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mejor alpha: 0.8, MAE: 7.076236021209091
+Métricas adicionales: {&#39;MAE&#39;: 7.076236021209091, &#39;MSE&#39;: 240.99301550733267, &#39;RMSE&#39;: 15.52394973926844, &#39;MAPE&#39;: 21.52803302437119, &#39;R²&#39;: 0.633468887373445}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">plot_real_vs_pred_optimized</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="n">best_alpha</span><span class="p">):</span>
+    <span class="c1"># Crear el modelo con el mejor alpha encontrado</span>
+    <span class="n">ses_model</span> <span class="o">=</span> <span class="n">SimpleExpSmoothing</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">smoothing_level</span><span class="o">=</span><span class="n">best_alpha</span><span class="p">,</span> <span class="n">optimized</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1"># Realizar predicciones</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">ses_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_data</span><span class="p">))</span>
+    
+    <span class="c1"># Graficar los valores reales y las predicciones</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Valores Reales&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Predicción (alpha=</span><span class="si">{</span><span class="n">best_alpha</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Discharge&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Valores Reales vs Predicciones (Suavización Exponencial)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Usar la función para graficar con el alpha que has encontrado</span>
+<span class="n">plot_real_vs_pred_optimized</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">best_alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ae95ddc03ccf1a3762456600a222683e6466bed8d2547194244cb831a47f6df2.png" src="_images/ae95ddc03ccf1a3762456600a222683e6466bed8d2547194244cb831a47f6df2.png" />
+</div>
+</div>
+<p>Se puede observar que la gráfica de las predicciones no se asemeja. Esto es porque la serie tiene componentes de tendencia, estacionalidad e irregularidades. Por lo tanto usar SES NO es la mejor opción ya que este modelo no tiene encuenta la tendencia ni la estacionalidad</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.holtwinters</span> <span class="kn">import</span> <span class="n">SimpleExpSmoothing</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.gofplots</span> <span class="kn">import</span> <span class="n">qqplot</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Alpha ya definido</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Usa el mejor valor de alpha obtenido previamente</span>
+<span class="n">train_series</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span>
+<span class="n">test_series_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>  <span class="c1"># Longitud del conjunto de prueba</span>
+
+<span class="c1"># Ajustar el modelo de SES en los datos de entrenamiento</span>
+<span class="n">ses_model</span> <span class="o">=</span> <span class="n">SimpleExpSmoothing</span><span class="p">(</span><span class="n">train_series</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">smoothing_level</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">optimized</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Realizar las predicciones solo para el conjunto de prueba</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">ses_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="n">test_series_length</span><span class="p">)</span>
+
+<span class="c1"># Cálculo de los residuos usando los valores de prueba reales y predichos</span>
+<span class="n">best_residuals</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_pred</span>  
+
+<span class="c1"># Graficar el Q-Q Plot y ACF de los residuos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">qqplot</span><span class="p">(</span><span class="n">best_residuals</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Q-Q Plot de los Residuos&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">best_residuals</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ACF de los Residuos&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8fee6d2b159491c904292e270501fa14b706387a4aeffec5b4ea4743009345cb.png" src="_images/8fee6d2b159491c904292e270501fa14b706387a4aeffec5b4ea4743009345cb.png" />
+</div>
+</div>
+<p>En gráfico de Q-Q plot, la idea es que los puntos deberian alinearse a la diagonal roja si los residuos siguen una distribución normal. Es decir, los residuos no son completamente normales.</p>
+<p>la ACF muestra que la correlación de los residuos en diferentes lags, además se observa que algunos lags tienen autocorrelación en los residuos</p>
+</section>
+<section id="holt-winters">
+<h3>Holt winters<a class="headerlink" href="#holt-winters" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.holtwinters</span> <span class="kn">import</span> <span class="n">ExponentialSmoothing</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_percentage_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Configuración del modelo Holt-Winters con tendencia y estacionalidad (si aplica)</span>
+<span class="n">train_series</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span>
+<span class="n">test_series_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+
+<span class="c1"># Ajustar el modelo Holt-Winters sobre los datos de entrenamiento</span>
+<span class="n">holt_winters_model</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span>
+    <span class="n">train_series</span><span class="p">,</span> 
+    <span class="n">trend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>        <span class="c1"># &#39;add&#39; o &#39;mul&#39; para tendencia</span>
+    <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>     <span class="c1"># &#39;add&#39; o &#39;mul&#39; si hay estacionalidad</span>
+    <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">180</span> <span class="c1"># Ajustar según la periodicidad de tu serie</span>
+<span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Predecir los valores de prueba</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">holt_winters_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="n">test_series_length</span><span class="p">)</span>
+
+<span class="c1"># Calcular métricas de error</span>
+<span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="c1"># Graficar los resultados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_series</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">train_series</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valores Reales (Entrenamiento)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valores Reales (Prueba)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicción Holt-Winters&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mostrar las métricas en el gráfico</span>
+<span class="n">error_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;MAPE: </span><span class="si">{</span><span class="n">mape</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">MAE: </span><span class="si">{</span><span class="n">mae</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">MSE: </span><span class="si">{</span><span class="n">mse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">R²: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">error_text</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+         <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Discharge&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Valores Reales vs Predicciones (Holt-Winters)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5469ace49676508212920fe0797571792414aac93d3b8a5708dd763f55d55162.png" src="_images/5469ace49676508212920fe0797571792414aac93d3b8a5708dd763f55d55162.png" />
+</div>
+</div>
+<p>La predicción del modelo Holt Winters sigue un comportamiento descendiente de los datos reales hasta el final de la serie. El modelo captura razonablemente la tendencia baja, pero no muestra la misma magnitud de variabilidad</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">holt_winters_model</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span>
+    <span class="n">train_series</span><span class="p">,</span>
+    <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
+    <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
+    <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">365</span>
+<span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">fitted_values</span> <span class="o">=</span> <span class="n">holt_winters_model</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="n">train_series</span> <span class="o">-</span> <span class="n">fitted_values</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Residuos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Residuos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Residuos del Modelo Holt-Winters&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">residuals</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5df12687fef2c6c9152581c9bdeb317c12950e809506d195974843888da76708.png" src="_images/5df12687fef2c6c9152581c9bdeb317c12950e809506d195974843888da76708.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    884.000000
+mean      -0.031749
+std        9.475199
+min      -59.487557
+25%       -2.555509
+50%        0.011058
+75%        2.762901
+max      103.321047
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los residuos suelen oscilar en la línea cero, es decir que el modelo no presenta un sesgo evidente. La variabilidad de los residuos no parece ser consante a lo largo del tiempo.</p>
+</section>
+<section id="sarima">
+<h3>SARIMA<a class="headerlink" href="#sarima" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.sarimax</span> <span class="kn">import</span> <span class="n">SARIMAX</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="c1"># Configuración de los datos</span>
+<span class="n">train_series</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span>
+<span class="n">test_series</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span>
+
+<span class="c1"># Rangos de parámetros para la búsqueda en rejilla</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">d</span> <span class="o">=</span> <span class="n">q</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Rangos para (p, d, q)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">D</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Rangos para (P, D, Q)</span>
+<span class="n">seasonal_periods</span> <span class="o">=</span> <span class="p">[</span><span class="mi">180</span><span class="p">]</span>  <span class="c1"># Períodos estacionales</span>
+
+<span class="c1"># Combinaciones posibles para (p, d, q) y (P, D, Q, s)</span>
+<span class="n">pdq</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">d</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">q</span><span class="p">]</span>
+<span class="n">seasonal_pdq</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">P</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">D</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">Q</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">seasonal_periods</span><span class="p">]</span>
+
+<span class="c1"># Variables para almacenar los mejores parámetros y error</span>
+<span class="n">best_pdq</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">best_seasonal_pdq</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">lowest_aic</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+
+<span class="c1"># Búsqueda en rejilla de los mejores parámetros</span>
+<span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">pdq</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">seasonal_param</span> <span class="ow">in</span> <span class="n">seasonal_pdq</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Ajuste del modelo SARIMA</span>
+            <span class="n">sarima_model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">train_series</span><span class="p">,</span> 
+                                   <span class="n">order</span><span class="o">=</span><span class="n">param</span><span class="p">,</span> 
+                                   <span class="n">seasonal_order</span><span class="o">=</span><span class="n">seasonal_param</span><span class="p">,</span>
+                                   <span class="n">enforce_stationarity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                   <span class="n">enforce_invertibility</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+            <span class="c1"># Comparar el criterio AIC para seleccionar el mejor modelo</span>
+            <span class="k">if</span> <span class="n">sarima_model</span><span class="o">.</span><span class="n">aic</span> <span class="o">&lt;</span> <span class="n">lowest_aic</span><span class="p">:</span>
+                <span class="n">lowest_aic</span> <span class="o">=</span> <span class="n">sarima_model</span><span class="o">.</span><span class="n">aic</span>
+                <span class="n">best_pdq</span> <span class="o">=</span> <span class="n">param</span>
+                <span class="n">best_seasonal_pdq</span> <span class="o">=</span> <span class="n">seasonal_param</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mejor combinación de parámetros: SARIMA</span><span class="si">{</span><span class="n">best_pdq</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">best_seasonal_pdq</span><span class="si">}</span><span class="s2"> - AIC: </span><span class="si">{</span><span class="n">lowest_aic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Entrenar modelo SARIMA con los mejores parámetros</span>
+<span class="n">best_sarima_model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">train_series</span><span class="p">,</span> 
+                            <span class="n">order</span><span class="o">=</span><span class="n">best_pdq</span><span class="p">,</span> 
+                            <span class="n">seasonal_order</span><span class="o">=</span><span class="n">best_seasonal_pdq</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Predicción sobre el conjunto de prueba</span>
+<span class="n">sarima_pred</span> <span class="o">=</span> <span class="n">best_sarima_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">train_series</span><span class="p">),</span> 
+                                        <span class="n">end</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">train_series</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_series</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Graficar los resultados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_series</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">train_series</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valores Reales (Entrenamiento)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">test_series</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Valores Reales (Prueba)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">sarima_pred</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicción SARIMA&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Discharge&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Valores Reales vs Predicciones (SARIMA)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Resumen del modelo SARIMA</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">best_sarima_model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mejor combinación de parámetros: SARIMA(1, 1, 1)x(1, 1, 0, 180) - AIC: 4315.709498968872
+</pre></div>
+</div>
+<img alt="_images/42c69e67986cc6e8900250e524f63b2221c2e8d3937d473d775f55c6768145c1.png" src="_images/42c69e67986cc6e8900250e524f63b2221c2e8d3937d473d775f55c6768145c1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                      SARIMAX Results                                       
+============================================================================================
+Dep. Variable:                     discharge_armley   No. Observations:                  884
+Model:             SARIMAX(1, 1, 1)x(1, 1, [], 180)   Log Likelihood               -2869.533
+Date:                              Sun, 27 Oct 2024   AIC                           5747.067
+Time:                                      00:42:11   BIC                           5765.288
+Sample:                                           0   HQIC                          5754.109
+                                              - 884                                         
+Covariance Type:                                opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+ar.L1          0.8210      0.023     36.428      0.000       0.777       0.865
+ma.L1         -0.9838      0.010   -101.294      0.000      -1.003      -0.965
+ar.S.L180     -0.4365      0.030    -14.552      0.000      -0.495      -0.378
+sigma2       194.3864      2.356     82.515      0.000     189.769     199.004
+===================================================================================
+Ljung-Box (L1) (Q):                   2.18   Jarque-Bera (JB):             42181.21
+Prob(Q):                              0.14   Prob(JB):                         0.00
+Heteroskedasticity (H):               3.97   Skew:                             3.43
+Prob(H) (two-sided):                  0.00   Kurtosis:                        40.32
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="validaciones">
+<h3>Validaciones<a class="headerlink" href="#validaciones" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+
+<span class="k">def</span> <span class="nf">stationarity</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">max_diff</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
+    
+    <span class="k">while</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="ow">and</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">max_diff</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>  <span class="c1"># Aplicar diferenciación</span>
+        <span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Diferenciación aplicada: d=</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">, p-value=</span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Los datos no serán estacionarios incluso después de aplicar diferenciaciones.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Los datos son estacionarios.&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">d</span><span class="p">,</span> <span class="n">ts</span>
+<span class="n">d</span><span class="p">,</span> <span class="n">diff_train_data</span> <span class="o">=</span> <span class="n">stationarity</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+<span class="n">d</span><span class="p">,</span> <span class="n">diff_test_data</span> <span class="o">=</span> <span class="n">stationarity</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+<span class="n">d</span><span class="p">,</span> <span class="n">diff_val_data</span> <span class="o">=</span> <span class="n">stationarity</span><span class="p">(</span><span class="n">val_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de diferenciaciones aplicadas: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~\AppData\Local\Temp\ipykernel_14960\2261782049.py</span> in <span class="ni">?</span><span class="nt">()</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="k">def</span> <span class="nf">stationarity</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">max_diff</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nn">~\AppData\Local\Temp\ipykernel_14960\2261782049.py</span> in <span class="ni">?</span><span class="nt">(ts, max_diff)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">stationarity</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">max_diff</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">while</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="ow">and</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">max_diff</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="n">d</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nn">c:\Users\FBA\miniconda3\envs\st_2024_03\lib\site-packages\statsmodels\tsa\stattools.py</span> in <span class="ni">?</span><span class="nt">(x, maxlag, regression, autolag, store, regresults)</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span>     <span class="o">..</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="n">MacKinnon</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span><span class="n">G</span><span class="o">.</span> <span class="mf">2010.</span> <span class="s2">&quot;Critical Values for Cointegration Tests.&quot;</span>  <span class="n">Queen</span><span class="s2">&quot;s</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>         <span class="n">University</span><span class="p">,</span> <span class="n">Dept</span> <span class="n">of</span> <span class="n">Economics</span><span class="p">,</span> <span class="n">Working</span> <span class="n">Papers</span><span class="o">.</span>  <span class="n">Available</span> <span class="n">at</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">ideas</span><span class="o">.</span><span class="n">repec</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="n">qed</span><span class="o">/</span><span class="n">wpaper</span><span class="o">/</span><span class="mf">1227.</span><span class="n">html</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">263</span><span class="s2">     x = array_like(x, &quot;x&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span><span class="s2">     maxlag = int_like(maxlag, &quot;maxlag&quot;, optional=True)</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span><span class="s2">     regression = string_like(</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span><span class="s2">         regression, &quot;regression&quot;, options=(&quot;c&quot;, &quot;ct&quot;, &quot;ctt&quot;, &quot;n&quot;)</span>
+
+<span class="nn">c:\Users\FBA\miniconda3\envs\st_2024_03\lib\site-packages\statsmodels\tools\validation\validation.py</span> in <span class="ni">?</span><span class="nt">(obj, name, dtype, ndim, maxdim, shape, order, contiguous, optional, writeable)</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span><span class="s2">     if order == &quot;C&quot; or contiguous:</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span><span class="s2">         reqs += [&quot;C&quot;]</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span><span class="s2">     elif order == &quot;F&quot;:</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span><span class="s2">         reqs += [&quot;F&quot;]</span>
+<span class="ne">--&gt; </span><span class="mi">143</span><span class="s2">     arr = np.require(obj, dtype=dtype, requirements=reqs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span><span class="s2">     if maxdim is not None:</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span><span class="s2">         if arr.ndim &gt; maxdim:</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span><span class="s2">             msg = &quot;</span><span class="si">{0}</span><span class="s2"> must have ndim &lt;= </span><span class="si">{1}</span><span class="s2">&quot;.format(name, maxdim)</span>
+
+<span class="nn">c:\Users\FBA\miniconda3\envs\st_2024_03\lib\site-packages\numpy\core\_asarray.py</span> in <span class="ni">?</span><span class="nt">(a, dtype, requirements, like)</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span><span class="s2">     elif &#39;C&#39; in requirements:</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span><span class="s2">         order = &#39;C&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span><span class="s2">         requirements.remove(&#39;C&#39;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">130</span><span class="s2">     arr = array(a, dtype=dtype, order=order, copy=False, subok=subok)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span><span class="s2">     for prop in requirements:</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span><span class="s2">         if not arr.flags[prop]:</span>
+
+<span class="nn">c:\Users\FBA\miniconda3\envs\st_2024_03\lib\site-packages\pandas\core\generic.py</span> in <span class="ni">?</span><span class="nt">(self, dtype)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1996</span><span class="s2">     def __array__(self, dtype: npt.DTypeLike | None = None) -&gt; np.ndarray:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1997</span><span class="s2">         values = self._values</span>
+<span class="ne">-&gt; </span><span class="mi">1998</span><span class="s2">         arr = np.asarray(values, dtype=dtype)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1999</span><span class="s2">         if (</span>
+<span class="g g-Whitespace">   </span><span class="mi">2000</span><span class="s2">             astype_is_view(values.dtype, arr.dtype)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2001</span><span class="s2">             and using_copy_on_write()</span>
+
+<span class="ne">TypeError</span>: float() argument must be a string or a number, not &#39;Timestamp&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Los datos de caudal, no son estacionarios</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#calculo de los errores</span>
+<span class="k">def</span> <span class="nf">errors</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_real</span><span class="p">):</span>
+    
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">mape</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(((</span><span class="n">y_real</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">/</span><span class="n">y_real</span><span class="p">)))</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">y_real</span><span class="p">))</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_real</span> <span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">mae</span><span class="p">,</span> <span class="n">mape</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="n">rmse</span><span class="p">,</span> <span class="n">r2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#evaluacion de supuestos</span>
+<span class="k">def</span> <span class="nf">assumptions</span><span class="p">(</span><span class="n">residuals</span><span class="p">):</span>
+
+    <span class="n">warning</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="mi">10</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">residuals</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="c1">#Independency</span>
+    <span class="c1">#H0: The residuals are independent.</span>
+    <span class="c1">#H1: The residuals aren&#39;t independent.    </span>
+    <span class="n">ljung_box_test</span> <span class="o">=</span> <span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">l</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ljung_box_pvalue</span> <span class="o">=</span> <span class="n">ljung_box_test</span><span class="p">[</span><span class="s1">&#39;lb_pvalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">ljung_box_pvalue</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+        <span class="n">warning</span><span class="o">=</span> <span class="n">warning</span> <span class="o">+</span> <span class="s2">&quot; The residuals aren&#39;t independent&quot;</span>
+        <span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span>
+
+    <span class="c1">#Normality test</span>
+    <span class="c1">#H0: The residuals have a normal distribution.</span>
+    <span class="c1">#H1: The residuals don&#39;t have a normal distribution.</span>
+    <span class="n">jb_stat</span><span class="p">,</span> <span class="n">jb_pvalue</span><span class="p">,</span> <span class="n">skewness</span><span class="p">,</span> <span class="n">kurtosis</span> <span class="o">=</span> <span class="n">jarque_bera</span><span class="p">(</span><span class="n">residuals</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">jb_pvalue</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">warning</span> <span class="o">=</span> <span class="n">warning</span> <span class="o">+</span> <span class="s2">&quot; The residuals do not follow a normal distribution&quot;</span>
+
+    <span class="k">return</span> <span class="n">jb_pvalue</span><span class="p">,</span> <span class="n">ljung_box_pvalue</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#graficos supuestos</span>
+<span class="k">def</span> <span class="nf">plot_residuals</span><span class="p">(</span><span class="n">residuals</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+    <span class="c1">#Serie de residuos</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Residuos&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Serie de Residuos&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Índice&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residuo&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="c1">#QQ Plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;QQ Plot de Residuos&#39;</span><span class="p">)</span>
+
+    <span class="c1">#ACF de residuos</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">plot_acf</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ACF de Residuos&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -430,12 +1309,44 @@ document.write(`
         <p class="prev-next-title">ANÁLISIS EXPLORATORIO DE DATOS</p>
       </div>
     </a>
+    <a class="right-next"
+       href="Redes_Neuronales.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MODELOS DE REDES</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separacion-de-training-validacion-y-test">Separación de training validación y test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pronosticos">Pronosticos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suavizacion-exponencial-de-primer-orden-ses">Suavización exponencial de primer orden SES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#holt-winters">Holt winters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima">SARIMA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validaciones">Validaciones</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -480,8 +1391,8 @@ By Jason Barrios
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
