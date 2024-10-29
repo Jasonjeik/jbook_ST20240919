@@ -183,7 +183,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Proyecto_final.html">Proyecto Final Series de Tiempo</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">ANÁLISIS EXPLORATORIO DE DATOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Modelos_comerciales.html">Modelos Comerciales</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Redes_Neuronales.html">MODELOS DE REDES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Redes_Neuronales.html">Modelos de redes neuronales</a></li>
 
 
 </ul>
@@ -378,18 +378,35 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptualizacion">Conceptualización</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-datos">Los datos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-grafica">Interpretación gráfica</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verificacion-de-datos-faltantes">Verificación de datos faltantes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validacion-de-la-frecuencia-muestral">Validación de la frecuencia muestral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">Datos faltantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-grafica">Interpretación gráfica</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validacion-frecuencia">Validación frecuencia</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-normal">Distribución normal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estacionariedad">Estacionariedad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estacionariedad">Estacionariedad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acf">ACF</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia">Independencia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estacionariedad</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-preliminar">Análisis preliminar</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-la-serie-temporal">Descomposición de la serie temporal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estacionalidad">Estacionalidad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acf">ACF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pacf">PACF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analsis-de-estacionaliedad">Analsis de estacionaliedad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplots-anual">Boxplots anual</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#kruskal-wallis">Kruskal Wallis</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-post-hoc">Prueba Post Hoc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pacf">PACF</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diferenciacion">Diferenciación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lista-para-los-errores-del-pronostico">Lista para los errores del prónostico</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -409,6 +426,42 @@
 <h2>Conceptualización<a class="headerlink" href="#conceptualizacion" title="Link to this heading">#</a></h2>
 <p>El Air River, es un complejo fluvial que a lo largo de la historia Inglesa, ha sido importante para la economía local, sirviendo como vía de transporte para mercancías durante la Revolución Industrial. El río estuvo relacionado con el desarrollo de la industria textil en la región de Yorkshire y su biodiversidad es conocida por albergar variedades de pecesasí como aves y otros animales que dependen del río. Comprende una basta extensión de aguas que fluye a través de Yorkshire, en el norte de Inglaterra. Se origina en las Colinas de Pennine cerca de Malham, y fluye en dirección este hasta unirse al Ouse River cerca de Goole.</p>
 <p>En la imagen a continuación se detalla una sección del recorrido (36 km) que realiza el río entre las ciudades objetos de éste estudio (Kildwick y Armley).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scikit-posthocs
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scikit-posthocs
+  Downloading scikit_posthocs-0.10.0-py3-none-any.whl.metadata (5.8 kB)
+Requirement already satisfied: numpy in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from scikit-posthocs) (2.0.2)
+Requirement already satisfied: scipy&gt;=1.9.0 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from scikit-posthocs) (1.13.1)
+Requirement already satisfied: statsmodels in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from scikit-posthocs) (0.14.4)
+Requirement already satisfied: pandas&gt;=0.20.0 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from scikit-posthocs) (2.2.3)
+Requirement already satisfied: seaborn in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from scikit-posthocs) (0.13.2)
+Requirement already satisfied: matplotlib in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from scikit-posthocs) (3.9.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from pandas&gt;=0.20.0-&gt;scikit-posthocs) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from pandas&gt;=0.20.0-&gt;scikit-posthocs) (2024.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from pandas&gt;=0.20.0-&gt;scikit-posthocs) (2024.2)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from matplotlib-&gt;scikit-posthocs) (1.3.0)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from matplotlib-&gt;scikit-posthocs) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from matplotlib-&gt;scikit-posthocs) (4.53.1)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from matplotlib-&gt;scikit-posthocs) (1.4.7)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from matplotlib-&gt;scikit-posthocs) (24.1)
+Requirement already satisfied: pillow&gt;=8 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from matplotlib-&gt;scikit-posthocs) (10.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from matplotlib-&gt;scikit-posthocs) (3.1.4)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from matplotlib-&gt;scikit-posthocs) (6.4.5)
+Requirement already satisfied: patsy&gt;=0.5.6 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from statsmodels-&gt;scikit-posthocs) (0.5.6)
+Requirement already satisfied: zipp&gt;=3.1.0 in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib-&gt;scikit-posthocs) (3.20.2)
+Requirement already satisfied: six in c:\users\isabe\miniconda3\envs\ven_st\lib\site-packages (from patsy&gt;=0.5.6-&gt;statsmodels-&gt;scikit-posthocs) (1.16.0)
+Downloading scikit_posthocs-0.10.0-py3-none-any.whl (33 kB)
+Installing collected packages: scikit-posthocs
+Successfully installed scikit-posthocs-0.10.0
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
@@ -505,6 +558,236 @@
 </div>
 </div>
 <p>Las variables de interés en la base de datos se denominan ‘discharge_kildwick’ y ‘discharge_armley’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series</span> <span class="o">=</span> <span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>  
+<span class="n">series</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    1264.000000
+mean       19.092943
+std        21.316441
+min         3.300000
+25%         5.720000
+50%        11.050000
+75%        23.425000
+max       192.000000
+Name: discharge_armley, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>El promedio de los datos de la serie es de 8.18
+La desviación esatndar es de 10.95, lo cuál nos podría decir que los datos están dispersos
+El minimo caudal registrado es de 0.515
+El 25% de los valores de la serie son menores o iguales que 1.510
+El 50% de los valores de la serie son menores o iguales (mediana) 4.160
+El 75% de los valores de la serie son menores o iguales 9.78
+El valor máximo registrado en el caudal es de 85.3</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of the DataFrame:&#39;</span><span class="p">,</span> <span class="n">data_us</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">data_us</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of the DataFrame: (1264, 5)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>Date</th>
+      <th>discharge_kildwick</th>
+      <th>discharge_armley</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2017-11-14</td>
+      <td>3.69</td>
+      <td>7.43</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2017-11-15</td>
+      <td>4.56</td>
+      <td>9.66</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2017-11-16</td>
+      <td>5.45</td>
+      <td>10.30</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>2017-11-17</td>
+      <td>4.19</td>
+      <td>9.69</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>2017-11-18</td>
+      <td>3.55</td>
+      <td>8.37</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>2017-11-19</td>
+      <td>3.18</td>
+      <td>7.89</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>2017-11-20</td>
+      <td>10.90</td>
+      <td>17.70</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>2017-11-21</td>
+      <td>28.10</td>
+      <td>45.30</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>2017-11-22</td>
+      <td>34.80</td>
+      <td>49.30</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>2017-11-23</td>
+      <td>33.40</td>
+      <td>57.40</td>
+      <td>2017</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_us</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;discharge_kildwick&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">data_us</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span>
+<span class="n">data_us</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data_us</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>discharge_kildwick</th>
+      <th>discharge_armley</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.69</td>
+      <td>7.43</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.56</td>
+      <td>9.66</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5.45</td>
+      <td>10.30</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.19</td>
+      <td>9.69</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.55</td>
+      <td>8.37</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="datos-faltantes">
+<h3>Datos faltantes<a class="headerlink" href="#datos-faltantes" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_kildwick&#39;</span><span class="p">]))</span><span class="o">|</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of missing values found:&#39;</span><span class="p">,</span> <span class="n">missing</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="n">data_us</span> <span class="o">=</span> <span class="n">data_us</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">missing</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of missing values found: 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>No hay presencia de datos faltantes</p>
+</section>
 <section id="interpretacion-grafica">
 <h3>Interpretación gráfica<a class="headerlink" href="#interpretacion-grafica" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -540,127 +823,459 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6d984939e2a696b6cc8ba91edc30c825d636901c3879ce463b292f3ab83ba5ea.png" src="_images/6d984939e2a696b6cc8ba91edc30c825d636901c3879ce463b292f3ab83ba5ea.png" />
+<img alt="_images/dc6d4f709587ed4a6abf86f9c9380fe5037695b870d4d210d1ccb9ff8213e17c.png" src="_images/dc6d4f709587ed4a6abf86f9c9380fe5037695b870d4d210d1ccb9ff8213e17c.png" />
 </div>
 </div>
 <p>El caudal del rio Amley muestra variaciones significativas a lo largo del tiempo, con presencia de picos.En la gráfica se puede observar que hay momentos donde el caudal del rio aumenta, que es aproximadamente al inciio del 2019,2020 y 2021, esto podría ser por lluvias intensas</p>
-</section>
-<section id="verificacion-de-datos-faltantes">
-<h3>Verificación de datos faltantes<a class="headerlink" href="#verificacion-de-datos-faltantes" title="Link to this heading">#</a></h3>
+<section id="validacion-frecuencia">
+<h4>Validación frecuencia<a class="headerlink" href="#validacion-frecuencia" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_us</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;discharge_kildwick&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">data_us</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span>
-<span class="n">data_us</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">data_us</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">frecuencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">infer_freq</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frecuencia inferida:&quot;</span><span class="p">,</span> <span class="n">frecuencia</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frecuencia inferida: D
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el dataframe están registrado los datos diarios</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">trend_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">trend_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-5 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>discharge_kildwick</th>
-      <th>discharge_armley</th>
-    </tr>
-    <tr>
-      <th>Date</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2017-11-14</th>
-      <td>3.69</td>
-      <td>7.43</td>
-    </tr>
-    <tr>
-      <th>2017-11-15</th>
-      <td>4.56</td>
-      <td>9.66</td>
-    </tr>
-    <tr>
-      <th>2017-11-16</th>
-      <td>5.45</td>
-      <td>10.30</td>
-    </tr>
-    <tr>
-      <th>2017-11-17</th>
-      <td>4.19</td>
-      <td>9.69</td>
-    </tr>
-    <tr>
-      <th>2017-11-18</th>
-      <td>3.55</td>
-      <td>8.37</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-5 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-5 pre {
+  padding: 0;
+}
+
+#sk-container-id-5 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-5 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-5 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-5 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-5 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-5 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-5 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-5 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-5 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-5 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-5 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-5 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-5 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-5 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-5 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-5 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-5 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-5 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-5 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-5 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-5 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-5 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-5 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-5 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-5 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-5 div.sk-label label.sk-toggleable__label,
+#sk-container-id-5 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-5 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-5 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-5 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-5 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-5 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-5 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-5 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-5 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-5 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-5 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-5 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-5 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" checked><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_us</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Trend model coefficient=</span><span class="si">{}</span><span class="s1"> and intercept=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">trend_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">trend_model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>discharge_kildwick    0
-discharge_armley      0
-dtype: int64
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trend model coefficient=0.008201684717394096 and intercept=13.913579138940314
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_us</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>discharge_kildwick    0
-discharge_armley      0
-dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<p>Se observa que no hay presencia de datos faltantes</p>
+<p>EL valor de tendencia muestra que linea de tendencia tiene un coeficiente positivo, indica una tendencia creciente en los datos a lo largo del tiempo y el intercepto es de 13.913 cuando el tiempo es igual a cero</p>
+<p>La combinación de la tendencia positiva y el intercepto positivo indica que la serie tiene un comportamiento ascendente</p>
 </section>
-<section id="validacion-de-la-frecuencia-muestral">
-<h3>Validación de la frecuencia muestral<a class="headerlink" href="#validacion-de-la-frecuencia-muestral" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#frecuencia de datos</span>
-<span class="n">data_us</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data_us</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">frecuencia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">infer_freq</span><span class="p">(</span><span class="n">data_us</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frecuencia: &quot;</span><span class="p">,</span> <span class="n">frecuencia</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frecuencia:  D
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="distribucion-normal">
 <h3>Distribución normal<a class="headerlink" href="#distribucion-normal" title="Link to this heading">#</a></h3>
@@ -699,92 +1314,19 @@ Sample does not look Normal (reject H0)
 <section id="estacionariedad">
 <h3>Estacionariedad<a class="headerlink" href="#estacionariedad" title="Link to this heading">#</a></h3>
 <p>Dickey-Fuller</p>
+<p>La descarga/caudal del rio se suele presentar un comportamiento estacional por las variaciones periódicas en el clima y otros factores</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#H0: La serie no es estacionaria</span>
-<span class="c1">#H1: La serie es estacionaria</span>
-<span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">data_us</span><span class="p">[[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]],</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
-<span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="kn">import</span> <span class="n">acorr_ljungbox</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.649429254575495e-06
-</pre></div>
-</div>
-</div>
-</div>
-<p>como el pvalue es menor al 5% se puede rechazar hipotesis, es decir que la serie es estacionaria</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series</span> <span class="o">=</span> <span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span>
-<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>  <span class="c1"># Asegúrate de usar pd.Series</span>
-<span class="n">series</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    1264.000000
-mean       19.092943
-std        21.316441
-min         3.300000
-25%         5.720000
-50%        11.050000
-75%        23.425000
-max       192.000000
-Name: discharge_armley, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-<p>El promedio de los datos de la serie es de 8.18
-La desviación esatndar es de 10.95, lo cuál nos podría decir que los datos están dispersos
-El minimo caudal registrado es de 0.515
-El 25% de los valores de la serie son menores o iguales que 1.510
-El 50% de los valores de la serie son menores o iguales (mediana) 4.160
-El 75% de los valores de la serie son menores o iguales 9.78
-El valor máximo registrado en el caudal es de 85.3</p>
-</section>
-<section id="analisis-preliminar">
-<h3>Análisis preliminar<a class="headerlink" href="#analisis-preliminar" title="Link to this heading">#</a></h3>
-<p>En general el caudal de un río dependerá signficativamente de la localidad en donde éste se mida. Sin embargo las fluctuaciones del mismo serán proporcionales en cada zona.</p>
-<p>De las interpretaciones preliminales que podemos observar en este tipo de datos de series temporales, es la estacionalidad y movimientos ciclicos de las variables medidas que se repiten con una regularidad, claramente marcada por los periodos de incremento y disminución de la pluviosidad en cada estación. La escaza o nula tendencia existente en los datos, es un comportamiento habitual de las variables que dependen de fenómenos naturales, los cuales crecen o decrecen a ritmos muy bajos solo perceptibles en largos periodos de tiempos con datos de varias décadas o siglos.</p>
-<p>Particularmente, los datos observados del Air River donde los bajos caudales concuerdan con las estaciones del Verano y otoño entre los meses de abril a noviembre. Los picos en los caudales corresponden a las estaciones de invierno y primavera, la cual se dá entre los meses de diciembre a marzo en los paises de Reino Unido.</p>
-<p><strong>Fuente:</strong> <a class="reference external" href="https://www.npl.co.uk/resources/q-a/when-do-the-four-seasons-begin">https://www.npl.co.uk/resources/q-a/when-do-the-four-seasons-begin</a></p>
-</section>
-</section>
-<section id="descomposicion-de-la-serie-temporal">
-<h2>Descomposición de la serie temporal<a class="headerlink" href="#descomposicion-de-la-serie-temporal" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa</span> <span class="kn">import</span> <span class="n">stattools</span>
-<span class="kn">from</span> <span class="nn">statsmodels.tsa</span> <span class="kn">import</span> <span class="n">seasonal</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of the DataFrame:&#39;</span><span class="p">,</span> <span class="n">data_us</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">data_us</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of the DataFrame: (1264, 2)
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -803,11 +1345,49 @@ El valor máximo registrado en el caudal es de 85.3</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>discharge_kildwick</th>
-      <th>discharge_armley</th>
+      <th>SF_absolute_humidity</th>
+      <th>SF_relative_humidity</th>
+      <th>SF_mean_air_temperature</th>
+      <th>SF_atmospheric_pressure</th>
+      <th>SF_potential_evaporation</th>
+      <th>SF_net_radiation</th>
+      <th>SF_volumetric_water_content</th>
+      <th>SF_soil_temperature</th>
+      <th>SF_wind_speed</th>
+      <th>catchment_daily_precipitation_armley</th>
+      <th>...</th>
+      <th>river_level_snaygill</th>
+      <th>river_level_kildwick</th>
+      <th>river_level_kirkstall</th>
+      <th>headingley_precipitation</th>
+      <th>malham_precipitation</th>
+      <th>skipton_snaygill_precipitation</th>
+      <th>farnley_hall_precipitation</th>
+      <th>embsay_precipitation</th>
+      <th>silsden_precipitation</th>
+      <th>lower_laithe_precipitation</th>
     </tr>
     <tr>
       <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -815,106 +1395,237 @@ El valor máximo registrado en el caudal es de 85.3</p>
   <tbody>
     <tr>
       <th>2017-11-14</th>
-      <td>3.69</td>
-      <td>7.43</td>
+      <td>8.3</td>
+      <td>86.2</td>
+      <td>10.4</td>
+      <td>1013.1</td>
+      <td>0.4</td>
+      <td>0.8</td>
+      <td>32.4</td>
+      <td>6.9</td>
+      <td>2.9</td>
+      <td>2.309286</td>
+      <td>...</td>
+      <td>0.417</td>
+      <td>0.366</td>
+      <td>1.514</td>
+      <td>1.4</td>
+      <td>9.6</td>
+      <td>0.8</td>
+      <td>0.8</td>
+      <td>6.6</td>
+      <td>1.2</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>2017-11-15</th>
-      <td>4.56</td>
-      <td>9.66</td>
+      <td>7.6</td>
+      <td>87.0</td>
+      <td>8.8</td>
+      <td>1016.3</td>
+      <td>0.4</td>
+      <td>1.1</td>
+      <td>31.3</td>
+      <td>8.1</td>
+      <td>1.6</td>
+      <td>1.518702</td>
+      <td>...</td>
+      <td>0.695</td>
+      <td>0.496</td>
+      <td>1.545</td>
+      <td>0.0</td>
+      <td>3.8</td>
+      <td>0.8</td>
+      <td>0.0</td>
+      <td>2.2</td>
+      <td>1.2</td>
+      <td>1.4</td>
     </tr>
     <tr>
       <th>2017-11-16</th>
-      <td>5.45</td>
-      <td>10.30</td>
+      <td>6.4</td>
+      <td>78.8</td>
+      <td>7.7</td>
+      <td>1014.7</td>
+      <td>0.6</td>
+      <td>-2.7</td>
+      <td>31.8</td>
+      <td>7.1</td>
+      <td>3.2</td>
+      <td>1.579437</td>
+      <td>...</td>
+      <td>0.715</td>
+      <td>0.497</td>
+      <td>1.544</td>
+      <td>0.4</td>
+      <td>1.6</td>
+      <td>2.4</td>
+      <td>0.2</td>
+      <td>1.6</td>
+      <td>1.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>2017-11-17</th>
-      <td>4.19</td>
-      <td>9.69</td>
+      <td>5.4</td>
+      <td>77.3</td>
+      <td>5.6</td>
+      <td>1019.7</td>
+      <td>0.6</td>
+      <td>-2.3</td>
+      <td>32.5</td>
+      <td>4.9</td>
+      <td>2.9</td>
+      <td>0.330846</td>
+      <td>...</td>
+      <td>0.631</td>
+      <td>0.476</td>
+      <td>1.562</td>
+      <td>0.0</td>
+      <td>0.8</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.2</td>
+      <td>0.4</td>
+      <td>0.2</td>
     </tr>
     <tr>
       <th>2017-11-18</th>
-      <td>3.55</td>
-      <td>8.37</td>
-    </tr>
-    <tr>
-      <th>2017-11-19</th>
-      <td>3.18</td>
-      <td>7.89</td>
-    </tr>
-    <tr>
-      <th>2017-11-20</th>
-      <td>10.90</td>
-      <td>17.70</td>
-    </tr>
-    <tr>
-      <th>2017-11-21</th>
-      <td>28.10</td>
-      <td>45.30</td>
-    </tr>
-    <tr>
-      <th>2017-11-22</th>
-      <td>34.80</td>
-      <td>49.30</td>
-    </tr>
-    <tr>
-      <th>2017-11-23</th>
-      <td>33.40</td>
-      <td>57.40</td>
+      <td>5.6</td>
+      <td>74.0</td>
+      <td>6.5</td>
+      <td>1013.1</td>
+      <td>0.7</td>
+      <td>-2.3</td>
+      <td>30.4</td>
+      <td>5.2</td>
+      <td>3.4</td>
+      <td>0.038513</td>
+      <td>...</td>
+      <td>0.534</td>
+      <td>0.430</td>
+      <td>1.536</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.2</td>
     </tr>
   </tbody>
 </table>
+<p>5 rows × 23 columns</p>
 </div></div></div>
 </div>
+<section id="acf">
+<h4>ACF<a class="headerlink" href="#acf" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data_us</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">lags</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;discharge_kildwick&#39;, &#39;discharge_armley&#39;], dtype=&#39;object&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 550x550 with 0 Axes&gt;
 </pre></div>
 </div>
+<img alt="_images/2d0481797df4858f378ad9e44af16dcf7a72029f9bb7b795a0bc077ebe4e4f26.png" src="_images/2d0481797df4858f378ad9e44af16dcf7a72029f9bb7b795a0bc077ebe4e4f26.png" />
 </div>
 </div>
+<p>Con un intervalo del 95%. En los primeros valores tienen una autocorrelación alta y y positiva, además se observa que la serie va disminuyendo a medida que aumentan los lags, lo que indica que la serie tiene un patrón persistente</p>
+<p>En los primeros barras se observa que hay una correlación significativa entre los valores actuales de la serie y sus valores anteriores, por lo tanto se dice que la serie no es completamente aleatoria y que existe dependencia entre los valores.</p>
+<p>A medidad que aumentan los lags, las barras van disminuyendo, por lo que indica que para los valores más grandes la correlación No es significativa, por lo que se puede decir que hay tendencia a corto plazo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of missing values found:&#39;</span><span class="p">,</span> <span class="n">missing</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="n">data_us</span> <span class="o">=</span> <span class="n">data_us</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">missing</span><span class="p">,</span> <span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">lags</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of missing values found: 0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 550x550 with 0 Axes&gt;
 </pre></div>
 </div>
+<img alt="_images/dd5f67cbc458f214395791826b234efea4d8a09c37fb8864d8750a9b337362b3.png" src="_images/dd5f67cbc458f214395791826b234efea4d8a09c37fb8864d8750a9b337362b3.png" />
 </div>
 </div>
+<p>Los rezagos significativos están en los primero 10 lags</p>
+</section>
+<section id="independencia">
+<h4>Independencia<a class="headerlink" href="#independencia" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_result</span> <span class="o">=</span> <span class="n">stattools</span><span class="o">.</span><span class="n">adfuller</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-val of the ADF test on irregular variations in employment data:&#39;</span><span class="p">,</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#H0: Los datos son independientes</span>
+<span class="c1">#H1: Los datos no son independientes    </span>
+<span class="n">ljung_box_test</span> <span class="o">=</span> <span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">lags</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ljung_box_pvalue</span> <span class="o">=</span> <span class="n">ljung_box_test</span><span class="p">[</span><span class="s1">&#39;lb_pvalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+<span class="k">if</span> <span class="n">ljung_box_pvalue</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La serie no estacionaria, el p-valor de la prueba es&quot;</span><span class="p">,</span> <span class="n">ljung_box_pvalue</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-val of the ADF test on irregular variations in employment data: 4.649429254575495e-06
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La serie no estacionaria, el p-valor de la prueba es 1.0980926305539803e-187
 </pre></div>
 </div>
 </div>
 </div>
+<p>Cuando se aplica la prueba de Ljun Box se observa que el estadistico de prueba es bajo, por lo tanto se dice que los datos son dependientes. Es decir que lo que paso antes me puede ayudara a predecir lo que ocurrira, esto puede estar realacionado con la estacionalidad de los datos</p>
+</section>
+<section id="id1">
+<h4>Estacionariedad<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_result</span> <span class="o">=</span> <span class="n">stattools</span><span class="o">.</span><span class="n">adfuller</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">autolag</span><span class="o">=</span><span class="s1">&#39;AIC&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-val of the ADF test on irregular variations in employment data:&#39;</span><span class="p">,</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+
+<span class="c1"># Ho: la serie de tiempo no es estacionaria </span>
+<span class="c1"># Ha: La serie de tiempo es estacionaria</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estadístico ADF:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor p:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valores críticos:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-val of the ADF test on irregular variations in employment data: 4.649429254575495e-06
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estadístico ADF: -5.334211027019817
+Valor p: 4.6494292545753305e-06
+Valores críticos:
+   1%: -3.4355880246374304
+   5%: -2.8638531175675896
+   10%: -2.568001531098063
+</pre></div>
+</div>
+</div>
+</div>
+<p>En la prueba de ADF nos da un estadistico de -5.33 y este es menor que todos los valores críticos, inclyuendo la del 1% (99% de confianza). Es decir que la estacionariedad de las serie es muy fuerte.   Se comprueba la teoría que se tenia, que los datos del caudal del rio son estacionarios</p>
+</section>
+</section>
+<section id="analisis-preliminar">
+<h3>Análisis preliminar<a class="headerlink" href="#analisis-preliminar" title="Link to this heading">#</a></h3>
+<p>En general el caudal de un río dependerá signficativamente de la localidad en donde éste se mida. Sin embargo las fluctuaciones del mismo serán proporcionales en cada zona.</p>
+<p>De las interpretaciones preliminales que podemos observar en este tipo de datos de series temporales, es la estacionalidad y movimientos ciclicos de las variables medidas que se repiten con una regularidad, claramente marcada por los periodos de incremento y disminución de la pluviosidad en cada estación. La escaza o nula tendencia existente en los datos, es un comportamiento habitual de las variables que dependen de fenómenos naturales, los cuales crecen o decrecen a ritmos muy bajos solo perceptibles en largos periodos de tiempos con datos de varias décadas o siglos.</p>
+<p>Particularmente, los datos observados del Air River donde los bajos caudales concuerdan con las estaciones del Verano y otoño entre los meses de abril a noviembre. Los picos en los caudales corresponden a las estaciones de invierno y primavera, la cual se dá entre los meses de diciembre a marzo en los paises de Reino Unido.</p>
+<p><strong>Fuente:</strong> <a class="reference external" href="https://www.npl.co.uk/resources/q-a/when-do-the-four-seasons-begin">https://www.npl.co.uk/resources/q-a/when-do-the-four-seasons-begin</a></p>
+</section>
+</section>
+<section id="descomposicion-de-la-serie-temporal">
+<h2>Descomposición de la serie temporal<a class="headerlink" href="#descomposicion-de-la-serie-temporal" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa</span> <span class="kn">import</span> <span class="n">stattools</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa</span> <span class="kn">import</span> <span class="n">seasonal</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
@@ -955,15 +1666,15 @@ En la gráfica de los residuales se puede obsevar que se prestan variaciones.</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/79f8a0849f28534ae094af41f330ad1148c509dbd23a06996182290967dc3b81.png" src="_images/79f8a0849f28534ae094af41f330ad1148c509dbd23a06996182290967dc3b81.png" />
+<img alt="_images/177a41356617172cff4cd91d067184639a2bec51e75ae576e0ce10f7cc389fba.png" src="_images/177a41356617172cff4cd91d067184639a2bec51e75ae576e0ce10f7cc389fba.png" />
 </div>
 </div>
 <p>En la gráfica de la serie se puede observar que el comportamiento del caudal cuenta con fluctiaciones a lo largo del tiempo</p>
 <p>En el gráfico de tendencia se puede observar que hay fluctuaciones (aumentos y caidas)</p>
 <p>El gráfico de estacionalidad muestra que se presentan patrones repetitivos a intervalos</p>
 <p>El gráfico muestra variaciones irregulares las cuales no son explicadas por la tendencia ni por la estacionalidad</p>
-<section id="estacionalidad">
-<h3>Estacionalidad<a class="headerlink" href="#estacionalidad" title="Link to this heading">#</a></h3>
+<section id="analsis-de-estacionaliedad">
+<h3>Analsis de estacionaliedad<a class="headerlink" href="#analsis-de-estacionaliedad" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_us</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -975,18 +1686,18 @@ En la gráfica de los residuales se puede obsevar que se prestan variaciones.</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Date  discharge_kildwick  discharge_armley
-0    2017-11-14                3.69              7.43
-1    2017-11-15                4.56              9.66
-2    2017-11-16                5.45             10.30
-3    2017-11-17                4.19              9.69
-4    2017-11-18                3.55              8.37
-...         ...                 ...               ...
-1259 2021-04-26                1.18              4.75
-1260 2021-04-27                1.23              8.03
-1261 2021-04-28                1.26              5.37
-1262 2021-04-29                1.23              4.94
-1263 2021-04-30                1.22              4.87
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      index  discharge_kildwick  discharge_armley
+0         0                3.69              7.43
+1         1                4.56              9.66
+2         2                5.45             10.30
+3         3                4.19              9.69
+4         4                3.55              8.37
+...     ...                 ...               ...
+1259   1259                1.18              4.75
+1260   1260                1.23              8.03
+1261   1261                1.26              5.37
+1262   1262                1.23              4.94
+1263   1263                1.22              4.87
 
 [1264 rows x 3 columns]
 </pre></div>
@@ -995,37 +1706,65 @@ En la gráfica de los residuales se puede obsevar que se prestan variaciones.</p
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data_us</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Date&#39;, &#39;discharge_kildwick&#39;, &#39;discharge_armley&#39;, &#39;year&#39;], dtype=&#39;object&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Se realiza un analisis estacioanl de cada 180 dias para identificar patrones repetitivos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
-<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data_us</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Annual Boxplots of Discharge armley&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
-<span class="n">g</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Discharge armley&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;180_days_period&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">//</span> <span class="mi">180</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;180_days_period&#39;</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Boxplots de caudal cada 180 dias&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;periodo 180 diasa&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Caudal&#39;</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/573f21837601b3915bbdcf27a21684b28906b72b482c4fd36c8e9e8be5855139.png" src="_images/573f21837601b3915bbdcf27a21684b28906b72b482c4fd36c8e9e8be5855139.png" />
+<img alt="_images/a542e3c654274627555277e3b2cf2bbfe64cea9948d21f3e6660e96ebccf22c8.png" src="_images/a542e3c654274627555277e3b2cf2bbfe64cea9948d21f3e6660e96ebccf22c8.png" />
+</div>
+</div>
+<p>Se observa que la mediana cambia signifiativamente entre periodo, esto se debe a la variabilidad de la serie.</p>
+<p>Los periodos con cajas mas bajas son 2018-2 y 2019-2 esto indica una menor varibailidad</p>
+<p>Se observa presencia de outliers, en especial en año 2020, esto puede ser debido a factores externos con el caudal</p>
+<p>El gráfico tiene varibilidad en el caudal cada 180 días, algunos peridoos presentan outliers</p>
+<section id="boxplots-anual">
+<h4>Boxplots anual<a class="headerlink" href="#boxplots-anual" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Annual Boxplots of Discharge Armley&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Discharge Armley&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e3b8beeaa62087d25a83d93f4881f1cdf730be144b402d5087a383f0e4d9d8ca.png" src="_images/e3b8beeaa62087d25a83d93f4881f1cdf730be144b402d5087a383f0e4d9d8ca.png" />
 </div>
 </div>
 <p>En el 2017: la mediana es baja,es decir que el caudal del rio en este año fue bajo, además se observa pocos outliers, por lo tanto se puede secir que hubo menor cantidad de eventos atipicos</p>
@@ -1033,35 +1772,65 @@ En la gráfica de los residuales se puede obsevar que se prestan variaciones.</p
 <p>En el 2019: La mediana sigue sinedo similar a las del 2017 y 2018, además se tiene una mayor presencia de outliers, es decir que hubieron eventos, que permitieron el aumento del caudal</p>
 <p>En  el 2020: Se observa aumento en las medianas, es decir que el caudal del rio en este año aumento, además se presencia mayor presencia de atípicos y en este año se presento el mayor caudal</p>
 <p>En el 2021: Se observa poca presencia de datos atipicos</p>
-</section>
-<section id="acf">
-<h3>ACF<a class="headerlink" href="#acf" title="Link to this heading">#</a></h3>
+<section id="kruskal-wallis">
+<h5>Kruskal Wallis<a class="headerlink" href="#kruskal-wallis" title="Link to this heading">#</a></h5>
+<p>Se realiza una prueba de Kruskal-Wallis con el fin de hacer un analisis de varianza cuando los datos no siguen una distribución normal y además no tienen varianza homegenes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">year</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">))</span>
-<span class="n">plot_acf</span><span class="p">(</span><span class="n">data_us</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">],</span> <span class="n">lags</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>  <span class="c1"># Cambia &#39;ts&#39; por tu serie temporal</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">kruskal</span>
+
+<span class="n">stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">kruskal</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2017</span><span class="p">],</span>
+                        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2018</span><span class="p">],</span>
+                        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2019</span><span class="p">],</span>
+                        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2020</span><span class="p">],</span>
+                        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2021</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Prueba de Kruskal-Wallis: Estadístico = </span><span class="si">{</span><span class="n">stat</span><span class="si">}</span><span class="s1">, p-value = </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 550x550 with 0 Axes&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prueba de Kruskal-Wallis: Estadístico = 58.43517234517589, p-value = 6.183342740955218e-12
 </pre></div>
 </div>
-<img alt="_images/5958ba0ab8ecdcc3d0b1b4323d0c83f7fed2021eb09837788db17216f53e3cb8.png" src="_images/5958ba0ab8ecdcc3d0b1b4323d0c83f7fed2021eb09837788db17216f53e3cb8.png" />
 </div>
 </div>
-<p>Con un intervalo del 95%. En los primeros valores tienen una autocorrelación alta y y positiva, además se observa que la serie va disminuyendo a medida que aumentan los lags, lo que indica que la serie tiene un patrón persistente</p>
-<p>En los primeros barras se observa que hay una correlación significativa entre los valores actuales de la serie y sus valores anteriores, por lo tanto se dice que la serie no es completamente aleatoria y que existe dependencia entre los valores.</p>
-<p>A medidad que aumentan los lags, las barras van disminuyendo, por lo que indica que para los valores más grandes la correlación No es significativa, por lo que se puede decir que hay tendencia a corto plazo</p>
+<p>Como el valor de P es menor al 5%, entonces hay diferencia signiticativa entre las mediandas del caudal del rio Amley</p>
+</section>
+<section id="prueba-post-hoc">
+<h5>Prueba Post Hoc<a class="headerlink" href="#prueba-post-hoc" title="Link to this heading">#</a></h5>
+<p>Permite identificar entre que años existe la diferencia</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scikit_posthocs</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="n">dunn_result</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">posthoc_dunn</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">val_col</span><span class="o">=</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">,</span> <span class="n">group_col</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">p_adjust</span><span class="o">=</span><span class="s1">&#39;bonferroni&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dunn_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          2017          2018      2019      2020          2021
+2017  1.000000  3.016542e-05  0.164520  0.218531  1.000000e+00
+2018  0.000030  1.000000e+00  0.000025  0.000008  5.842013e-09
+2019  0.164520  2.473517e-05  1.000000  1.000000  3.962109e-02
+2020  0.218531  8.059853e-06  1.000000  1.000000  6.388284e-02
+2021  1.000000  5.842013e-09  0.039621  0.063883  1.000000e+00
+</pre></div>
+</div>
+</div>
+</div>
+<p>En el año 2018 es notable la diferencia de todos los demas años 2017,2019,2020 y 2021, es decir qu durante este año hubo cambios importante en el caudal</p>
+<p>En el año 2017,2019,2020 y 2021 muestran diferencia menos significativas</p>
+</section>
+</section>
 </section>
 <section id="pacf">
 <h3>PACF<a class="headerlink" href="#pacf" title="Link to this heading">#</a></h3>
@@ -1085,10 +1854,66 @@ En la gráfica de los residuales se puede obsevar que se prestan variaciones.</p
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 550x550 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/13d354cac9c388779cfbf4e0a2b810a9875110bf378c7cae5a551d664af8269d.png" src="_images/13d354cac9c388779cfbf4e0a2b810a9875110bf378c7cae5a551d664af8269d.png" />
+<img alt="_images/93004c5aeb717d2a1a40faf5e7cb6348ebd9a735778a35775447ed4104498b53.png" src="_images/93004c5aeb717d2a1a40faf5e7cb6348ebd9a735778a35775447ed4104498b53.png" />
 </div>
 </div>
 <p>En el PACF se puede observar que en el lag=1 es alta y esta fuera del intervalo de confianza, es decir que hay una correlación significativa entre la serie y su primer lag. A partir del lag=2 no hay correlación significativa en los retrasos</p>
+<section id="diferenciacion">
+<h4>Diferenciación<a class="headerlink" href="#diferenciacion" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se realiza una diferenciación a 180 días, debido a que esta serie es estacional en 180 días</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley_diff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estadístico ADF: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor p: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estadístico ADF: -4.460848590495603
+Valor p: 0.00023127691907377662
+</pre></div>
+</div>
+</div>
+</div>
+<p>El p-value es menor que el 5%, es decir, la serie diferenciada es estacionaria</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;discharge_armley_diff&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Discharge Armley Diferenciado (Periodo de 180)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Discharge Armley Diferenciado&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2d6b3e3aa348dfdd2929da5279df42aebed97a6d3137822a66c36b8c1eece0cf.png" src="_images/2d6b3e3aa348dfdd2929da5279df42aebed97a6d3137822a66c36b8c1eece0cf.png" />
+</div>
+</div>
+</section>
+<section id="lista-para-los-errores-del-pronostico">
+<h4>Lista para los errores del prónostico<a class="headerlink" href="#lista-para-los-errores-del-pronostico" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 </section>
@@ -1161,18 +1986,35 @@ En la gráfica de los residuales se puede obsevar que se prestan variaciones.</p
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptualizacion">Conceptualización</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#los-datos">Los datos</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-grafica">Interpretación gráfica</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verificacion-de-datos-faltantes">Verificación de datos faltantes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validacion-de-la-frecuencia-muestral">Validación de la frecuencia muestral</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">Datos faltantes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-grafica">Interpretación gráfica</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validacion-frecuencia">Validación frecuencia</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-normal">Distribución normal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estacionariedad">Estacionariedad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estacionariedad">Estacionariedad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#acf">ACF</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia">Independencia</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estacionariedad</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-preliminar">Análisis preliminar</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-de-la-serie-temporal">Descomposición de la serie temporal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estacionalidad">Estacionalidad</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acf">ACF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pacf">PACF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analsis-de-estacionaliedad">Analsis de estacionaliedad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplots-anual">Boxplots anual</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#kruskal-wallis">Kruskal Wallis</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#prueba-post-hoc">Prueba Post Hoc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pacf">PACF</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#diferenciacion">Diferenciación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lista-para-los-errores-del-pronostico">Lista para los errores del prónostico</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
