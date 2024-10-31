@@ -1170,6 +1170,9 @@ En el grafico de residuo se puede observra que estos tienen variaciones, por lo 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/8b7d593c1ec49ff90a6cf9a6dfa709948be29c34d7b303bafcf2ca51da721467.png" src="_images/8b7d593c1ec49ff90a6cf9a6dfa709948be29c34d7b303bafcf2ca51da721467.png" />
+</div>
 </div>
 <p>Segun la grafica se puede observar que el Bitcoin a novel anual no sigie patrones estacionales regulares como otras series</p>
 <p>Boxplot semanal</p>
@@ -1414,7 +1417,7 @@ Null hypothesis is rejected at lag = 19 for p-val = 0.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value of the ADF test for Bitcoin price: 0.8591968263291798
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value of the ADF test for Bitcoin price: 0.8591968263291794
 </pre></div>
 </div>
 <img alt="_images/2d69172b1c50523deca2462b7b97e17a9090f2738044a3907b520787ba693190.png" src="_images/2d69172b1c50523deca2462b7b97e17a9090f2738044a3907b520787ba693190.png" />
@@ -1457,7 +1460,7 @@ Null hypothesis is rejected at lag = 19 for p-val = 0.0000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value: 3.157009552126986e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value: 3.157009552127737e-16
 La serie diferenciada es estacionaria (p-valor &lt; 0.05).
 </pre></div>
 </div>
@@ -2024,33 +2027,33 @@ Date
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prueba de Dickey-Fuller para Detrended_M2:
-Estadístico: -9.513927738600698
-Valor p: 3.1945260240193933e-16
+Estadístico: -9.513927738600664
+Valor p: 3.1945260240200377e-16
 Conclusión: Estacionaria
 --------------------------------------------------
 Prueba de Dickey-Fuller para Detrended_M3:
-Estadístico: -11.242953710021906
-Valor p: 1.7882520687331736e-20
+Estadístico: -11.242953710021892
+Valor p: 1.7882520687333012e-20
 Conclusión: Estacionaria
 --------------------------------------------------
 Prueba de Dickey-Fuller para Detrended_M4:
-Estadístico: -9.853394619613047
-Valor p: 4.42426747165229e-17
+Estadístico: -9.853394619613052
+Valor p: 4.424267471652099e-17
 Conclusión: Estacionaria
 --------------------------------------------------
 Prueba de Dickey-Fuller para Detrended_M2_special:
-Estadístico: -9.513927738600685
-Valor p: 3.194526024019691e-16
+Estadístico: -9.513927738600692
+Valor p: 3.194526024019485e-16
 Conclusión: Estacionaria
 --------------------------------------------------
 Prueba de Dickey-Fuller para Detrended_M3_special:
-Estadístico: -10.043745238000845
-Valor p: 1.472939164101234e-17
+Estadístico: -10.04374523800085
+Valor p: 1.472939164101192e-17
 Conclusión: Estacionaria
 --------------------------------------------------
 Prueba de Dickey-Fuller para Detrended_M4_special:
-Estadístico: -0.5973452221109999
-Valor p: 0.871580770226231
+Estadístico: -0.5973452221109983
+Valor p: 0.8715807702262314
 Conclusión: No Estacionaria
 --------------------------------------------------
 </pre></div>
@@ -2454,98 +2457,36 @@ NaT           0.1    0.1      0.1    0.1   3590.0    0.00%  2010      8    32
 NaT           0.1    0.1      0.1    0.1   4400.0    0.00%  2010      8    32   
 2017-03-12  969.4  966.3  1,004.3  946.7  85330.0    0.32%  2017      3    12   
 
-            Price_diff      M2  M_2_t_t1    M_4  M_4_t_t1         M_3  \
-Date                                                                    
-2010-07-29         0.0     NaN       0.1    0.0       0.0    0.000000   
-2010-07-29         0.0    0.10       0.1    0.0       0.0    0.000000   
-2010-07-29         0.0    0.10       0.1    0.0       0.0    0.100000   
-2010-07-29         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-07-29         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-07-29         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-07-29         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-08-30         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
-2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
-NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
-NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
-NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
-NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
-NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
-NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
-2017-03-12         3.1  967.85       NaN  961.7       0.0  958.466667   
-
-            M_3_t-1_t+1  Detrended_M2  Detrended_M3  Detrended_M4  \
-Date                                                                
-2010-07-29          0.0           NaN      0.100000           0.1   
-2010-07-29          0.0          0.00      0.100000           0.1   
-2010-07-29          0.1          0.00      0.000000           0.1   
-2010-07-29          0.1          0.00      0.000000           0.0   
-2010-07-29          0.1          0.00      0.000000           0.0   
-2010-07-29          0.1          0.00      0.000000           0.0   
-2010-07-29          0.1          0.00      0.000000           0.0   
-2010-07-30          0.1          0.00      0.000000           0.0   
-2010-07-30          0.1          0.00      0.000000           0.0   
-2010-07-30          0.1          0.00      0.000000           0.0   
-2010-07-30          0.1          0.00      0.000000           0.0   
-2010-07-30          0.1          0.00      0.000000           0.0   
-2010-07-30          0.1          0.00      0.000000           0.0   
-2010-08-30          0.1          0.00      0.000000           0.0   
-2010-08-31          0.1          0.00      0.000000           0.0   
-2010-08-31          0.1          0.00      0.000000           0.0   
-2010-08-31          0.1          0.00      0.000000           0.0   
-2010-08-31          0.1          0.00      0.000000           0.0   
-2010-08-31          0.1          0.00      0.000000           0.0   
-2010-08-31          0.1          0.00      0.000000           0.0   
-2010-08-31          0.1          0.00      0.000000           0.0   
-NaT                 0.1          0.00      0.000000           0.0   
-NaT                 0.1          0.00      0.000000           0.0   
-NaT                 0.1          0.00      0.000000           0.0   
-NaT                 0.1          0.00      0.000000           0.0   
-NaT                 0.1          0.00      0.000000           0.0   
-NaT                 0.1          0.00      0.000000           0.0   
-2017-03-12        939.7          1.55     10.933333           7.7   
-
-            Detrended_M2_special  Detrended_M3_special  Detrended_M4_special  \
-Date                                                                           
-2010-07-29                   0.0                   0.1                   0.1   
-2010-07-29                   0.0                   0.1                   0.1   
-2010-07-29                   0.0                   0.0                   0.1   
-2010-07-29                   0.0                   0.0                   0.0   
-2010-07-29                   0.0                   0.0                   0.0   
-2010-07-29                   0.0                   0.0                   0.0   
-2010-07-29                   0.0                   0.0                   0.0   
-2010-07-30                   0.0                   0.0                   0.0   
-2010-07-30                   0.0                   0.0                   0.0   
-2010-07-30                   0.0                   0.0                   0.0   
-2010-07-30                   0.0                   0.0                   0.0   
-2010-07-30                   0.0                   0.0                   0.0   
-2010-07-30                   0.0                   0.0                   0.0   
-2010-08-30                   0.0                   0.0                   0.0   
-2010-08-31                   0.0                   0.0                   0.0   
-2010-08-31                   0.0                   0.0                   0.0   
-2010-08-31                   0.0                   0.0                   0.0   
-2010-08-31                   0.0                   0.0                   0.0   
-2010-08-31                   0.0                   0.0                   0.0   
-2010-08-31                   0.0                   0.0                   0.0   
-2010-08-31                   0.0                   0.0                   0.0   
-NaT                          0.0                   0.0                   0.0   
-NaT                          0.0                   0.0                   0.0   
-NaT                          0.0                   0.0                   0.0   
-NaT                          0.0                   0.0                   0.0   
-NaT                          0.0                   0.0                   0.0   
-NaT                          0.0                   0.0                   0.0   
-2017-03-12                   NaN                  29.7                 969.4   
+            Price_diff  ...  Detrended_M3_special  Detrended_M4_special  \
+Date                    ...                                               
+2010-07-29         0.0  ...                   0.1                   0.1   
+2010-07-29         0.0  ...                   0.1                   0.1   
+2010-07-29         0.0  ...                   0.0                   0.1   
+2010-07-29         0.0  ...                   0.0                   0.0   
+2010-07-29         0.0  ...                   0.0                   0.0   
+2010-07-29         0.0  ...                   0.0                   0.0   
+2010-07-29         0.0  ...                   0.0                   0.0   
+2010-07-30         0.0  ...                   0.0                   0.0   
+2010-07-30         0.0  ...                   0.0                   0.0   
+2010-07-30         0.0  ...                   0.0                   0.0   
+2010-07-30         0.0  ...                   0.0                   0.0   
+2010-07-30         0.0  ...                   0.0                   0.0   
+2010-07-30         0.0  ...                   0.0                   0.0   
+2010-08-30         0.0  ...                   0.0                   0.0   
+2010-08-31         0.0  ...                   0.0                   0.0   
+2010-08-31         0.0  ...                   0.0                   0.0   
+2010-08-31         0.0  ...                   0.0                   0.0   
+2010-08-31         0.0  ...                   0.0                   0.0   
+2010-08-31         0.0  ...                   0.0                   0.0   
+2010-08-31         0.0  ...                   0.0                   0.0   
+2010-08-31         0.0  ...                   0.0                   0.0   
+NaT                0.0  ...                   0.0                   0.0   
+NaT                0.0  ...                   0.0                   0.0   
+NaT                0.0  ...                   0.0                   0.0   
+NaT                0.0  ...                   0.0                   0.0   
+NaT                0.0  ...                   0.0                   0.0   
+NaT                0.0  ...                   0.0                   0.0   
+2017-03-12         3.1  ...                  29.7                 969.4   
 
             Tendencia  Residuos  Daily_Return  Retorno_Acumulado  \
 Date                                                               
@@ -2608,6 +2549,8 @@ NaT                    0.0              0.0              0.0              NaN
 NaT                    0.0              0.0              0.0              NaN  
 NaT                    0.0              0.0              0.0              NaN  
 2017-03-12             NaN              NaN              NaN              NaN  
+
+[28 rows x 30 columns]
 </pre></div>
 </div>
 </div>
@@ -2827,7 +2770,7 @@ La volatilidad en la mayoria del tiempo tiende a cero</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\2375788008.py:1: FutureWarning:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\2375788008.py:1: FutureWarning:
 
 DataFrame.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 </pre></div>
@@ -3130,103 +3073,103 @@ de series de tiempo y boxplots para analizar estas subseries.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:4: FutureWarning:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:3: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:5: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:4: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:6: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:5: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:7: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:6: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:8: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:7: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:11: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:9: FutureWarning:
 
 &#39;M&#39; is deprecated and will be removed in a future version, please use &#39;ME&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:11: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:9: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:12: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:10: FutureWarning:
 
 &#39;M&#39; is deprecated and will be removed in a future version, please use &#39;ME&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:12: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:10: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:13: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:11: FutureWarning:
 
 &#39;M&#39; is deprecated and will be removed in a future version, please use &#39;ME&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:13: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:11: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:14: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:12: FutureWarning:
 
 &#39;M&#39; is deprecated and will be removed in a future version, please use &#39;ME&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:14: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:12: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:15: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:13: FutureWarning:
 
 &#39;M&#39; is deprecated and will be removed in a future version, please use &#39;ME&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:15: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:13: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:18: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:15: FutureWarning:
 
 &#39;Y&#39; is deprecated and will be removed in a future version, please use &#39;YE&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:18: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:15: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:19: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:16: FutureWarning:
 
 &#39;Y&#39; is deprecated and will be removed in a future version, please use &#39;YE&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:19: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:16: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:20: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:17: FutureWarning:
 
 &#39;Y&#39; is deprecated and will be removed in a future version, please use &#39;YE&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:20: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:17: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:21: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:18: FutureWarning:
 
 &#39;Y&#39; is deprecated and will be removed in a future version, please use &#39;YE&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:21: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:18: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:22: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:19: FutureWarning:
 
 &#39;Y&#39; is deprecated and will be removed in a future version, please use &#39;YE&#39; instead.
 
-C:\Users\isabe\AppData\Local\Temp\ipykernel_23724\3542680949.py:22: FutureWarning:
+C:\Users\FBA\AppData\Local\Temp\ipykernel_27688\3555333478.py:19: FutureWarning:
 
 Series.fillna with &#39;method&#39; is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
 </pre></div>
@@ -3345,8 +3288,8 @@ además las transformaciones necesarias para convertir la serie de tiempo en est
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prueba de Dickey-Fuller para Volatilidad 7:
-Estadístico: -7.008828347437505
-Valor p: 7.007396902684984e-10
+Estadístico: -7.008828347437504
+Valor p: 7.007396902685089e-10
 Número de retardos utilizados: 25
 Número de observaciones utilizadas: 2354
 Valores críticos:
@@ -3356,8 +3299,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para Volatilidad 14:
-Estadístico: -7.155515222637289
-Valor p: 3.062068892543708e-10
+Estadístico: -7.155515222637294
+Valor p: 3.06206889254363e-10
 Número de retardos utilizados: 24
 Número de observaciones utilizadas: 2355
 Valores críticos:
@@ -3367,8 +3310,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para Volatilidad 21:
-Estadístico: -5.305984425063212
-Valor p: 5.321505188651979e-06
+Estadístico: -5.305984425063209
+Valor p: 5.3215051886520675e-06
 Número de retardos utilizados: 21
 Número de observaciones utilizadas: 2358
 Valores críticos:
@@ -3378,8 +3321,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para Volatilidad 28:
-Estadístico: -6.402112795527109
-Valor p: 1.9837578377158956e-08
+Estadístico: -6.402112795527106
+Valor p: 1.9837578377159178e-08
 Número de retardos utilizados: 6
 Número de observaciones utilizadas: 2373
 Valores críticos:
@@ -3583,8 +3526,8 @@ móviles. Dibuje la distribución de frecuencias para diferentes lags como se re
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prueba de Dickey-Fuller para M2R:
-Estadístico: -2.5498714976422647
-Valor p: 0.1038065984052623
+Estadístico: -2.5498714976422336
+Valor p: 0.10380659840526935
 Número de retardos utilizados: 25
 Número de observaciones utilizadas: 2350
 Valores críticos:
@@ -3594,8 +3537,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M27:
-Estadístico: -5.710621194186358
-Valor p: 7.314081257391935e-07
+Estadístico: -5.710621194186245
+Valor p: 7.314081257396099e-07
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2346
 Valores críticos:
@@ -3605,8 +3548,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M214:
-Estadístico: -4.365291127211891
-Valor p: 0.00034175137850033795
+Estadístico: -4.365291127210855
+Valor p: 0.0003417513785017698
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2339
 Valores críticos:
@@ -3616,8 +3559,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M221:
-Estadístico: -5.818404386992549
-Valor p: 4.238943906987509e-07
+Estadístico: -5.818404386990899
+Valor p: 4.2389439070231166e-07
 Número de retardos utilizados: 26
 Número de observaciones utilizadas: 2333
 Valores críticos:
@@ -3627,8 +3570,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M228:
-Estadístico: -3.0886578888564538
-Valor p: 0.02740402152641606
+Estadístico: -3.0886578888569027
+Valor p: 0.02740402152638193
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2325
 Valores críticos:
@@ -3665,8 +3608,8 @@ Valores críticos:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prueba de Dickey-Fuller para M_2_t_t1R:
-Estadístico: -0.6410722979135202
-Valor p: 0.8614287304615804
+Estadístico: -0.6410722979135228
+Valor p: 0.8614287304615798
 Número de retardos utilizados: 24
 Número de observaciones utilizadas: 2355
 Valores críticos:
@@ -3676,7 +3619,7 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_2_t_t17:
-Estadístico: -0.6514360316798512
+Estadístico: -0.6514360316798514
 Valor p: 0.8589310217495993
 Número de retardos utilizados: 24
 Número de observaciones utilizadas: 2355
@@ -3687,8 +3630,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_2_t_t114:
-Estadístico: -0.6510668238001951
-Valor p: 0.8590206122804609
+Estadístico: -0.651066823800197
+Valor p: 0.8590206122804604
 Número de retardos utilizados: 24
 Número de observaciones utilizadas: 2355
 Valores críticos:
@@ -3698,8 +3641,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_2_t_t121:
-Estadístico: -0.6506260211366592
-Valor p: 0.8591275166113457
+Estadístico: -0.6506260211366586
+Valor p: 0.8591275166113459
 Número de retardos utilizados: 24
 Número de observaciones utilizadas: 2355
 Valores críticos:
@@ -3709,8 +3652,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_2_t_t128:
-Estadístico: -0.6513172645692933
-Valor p: 0.8589598462338317
+Estadístico: -0.6513172645692925
+Valor p: 0.8589598462338319
 Número de retardos utilizados: 24
 Número de observaciones utilizadas: 2355
 Valores críticos:
@@ -3739,13 +3682,13 @@ Date
 2010-07-29    0.1  0.0
 2010-07-29    0.1  0.0
 2010-07-29    0.1  0.0
-2010-07-29    0.1  0.0
-2010-07-29    0.1  0.0
-2010-07-29    0.1  0.0
-2010-07-29    0.1  0.0
-2010-07-30    0.1  0.0
-2010-07-30    0.1  0.0
-2010-07-30    0.1  0.0
+2010-07-29    0.1  0.1
+2010-07-29    0.1  0.1
+2010-07-29    0.1  0.1
+2010-07-29    0.1  0.1
+2010-07-30    0.1  0.1
+2010-07-30    0.1  0.1
+2010-07-30    0.1  0.1
 </pre></div>
 </div>
 </div>
@@ -3762,8 +3705,8 @@ Date
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prueba de Dickey-Fuller para M_4R:
-Estadístico: -2.628955608571166
-Valor p: 0.08715917417532604
+Estadístico: -2.628955608571153
+Valor p: 0.0871591741753287
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2350
 Valores críticos:
@@ -3773,8 +3716,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_47:
-Estadístico: -6.220366979057668
-Valor p: 5.241329892889529e-08
+Estadístico: -6.220366979057456
+Valor p: 5.241329892895465e-08
 Número de retardos utilizados: 26
 Número de observaciones utilizadas: 2350
 Valores críticos:
@@ -3784,8 +3727,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_414:
-Estadístico: -5.7530010980251385
-Valor p: 5.906898663737759e-07
+Estadístico: -5.753001098024762
+Valor p: 5.90689866374898e-07
 Número de retardos utilizados: 26
 Número de observaciones utilizadas: 2350
 Valores críticos:
@@ -3795,8 +3738,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_421:
-Estadístico: -5.587311927659132
-Valor p: 1.3537265868785876e-06
+Estadístico: -5.587311927658694
+Valor p: 1.3537265868815268e-06
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2349
 Valores críticos:
@@ -3806,8 +3749,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_428:
-Estadístico: -4.498460048188348
-Valor p: 0.0001979036291599117
+Estadístico: -4.4984600481880115
+Valor p: 0.0001979036291601888
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2349
 Valores críticos:
@@ -3858,8 +3801,8 @@ Valores críticos:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prueba de Dickey-Fuller para M_4_t_t1R:
-Estadístico: -2.5157806169625947
-Valor p: 0.11168179056092481
+Estadístico: -2.5157806169626484
+Valor p: 0.11168179056091193
 Número de retardos utilizados: 25
 Número de observaciones utilizadas: 2348
 Valores críticos:
@@ -3869,8 +3812,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_4_t_t17:
-Estadístico: -6.239872582083407
-Valor p: 4.725836606934608e-08
+Estadístico: -6.2398725820832075
+Valor p: 4.725836606939645e-08
 Número de retardos utilizados: 26
 Número de observaciones utilizadas: 2346
 Valores críticos:
@@ -3880,8 +3823,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_4_t_t114:
-Estadístico: -5.262810956541578
-Valor p: 6.5352998715641044e-06
+Estadístico: -5.262810956542021
+Valor p: 6.535299871550379e-06
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2345
 Valores críticos:
@@ -3891,8 +3834,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_4_t_t121:
-Estadístico: -6.230149173309686
-Valor p: 4.9762511094570315e-08
+Estadístico: -6.230149173308947
+Valor p: 4.9762511094765934e-08
 Número de retardos utilizados: 25
 Número de observaciones utilizadas: 2347
 Valores críticos:
@@ -3902,8 +3845,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_4_t_t128:
-Estadístico: -4.518400759585958
-Valor p: 0.0001821214678834255
+Estadístico: -4.518400759586434
+Valor p: 0.00018212146788306363
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2345
 Valores críticos:
@@ -3938,8 +3881,8 @@ Valores críticos:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prueba de Dickey-Fuller para M_3R:
-Estadístico: -2.6316606040591646
-Valor p: 0.08662860548476775
+Estadístico: -2.631660604059177
+Valor p: 0.08662860548476525
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2351
 Valores críticos:
@@ -3949,8 +3892,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_37:
-Estadístico: -6.204151503353157
-Valor p: 5.7116208608877524e-08
+Estadístico: -6.204151503352991
+Valor p: 5.711620860892763e-08
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2350
 Valores críticos:
@@ -3960,8 +3903,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_314:
-Estadístico: -5.815056874903147
-Valor p: 4.311803707872704e-07
+Estadístico: -5.815056874903313
+Valor p: 4.311803707869062e-07
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2350
 Valores críticos:
@@ -3971,8 +3914,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_321:
-Estadístico: -5.340304719760433
-Valor p: 4.515551544502481e-06
+Estadístico: -5.34030471976007
+Valor p: 4.515551544510371e-06
 Número de retardos utilizados: 26
 Número de observaciones utilizadas: 2351
 Valores críticos:
@@ -3982,8 +3925,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_328:
-Estadístico: -4.456835188721821
-Valor p: 0.00023513819694625157
+Estadístico: -4.456835188721716
+Valor p: 0.00023513819694635343
 Número de retardos utilizados: 27
 Número de observaciones utilizadas: 2350
 Valores críticos:
@@ -4020,8 +3963,8 @@ Valores críticos:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prueba de Dickey-Fuller para M_3_t-1_t+1R:
-Estadístico: -2.491823227929192
-Valor p: 0.11747651896272332
+Estadístico: -2.4918232279291925
+Valor p: 0.11747651896272321
 Número de retardos utilizados: 9
 Número de observaciones utilizadas: 2369
 Valores críticos:
@@ -4031,8 +3974,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_3_t-1_t+17:
-Estadístico: -7.007544009947934
-Valor p: 7.058164378223627e-10
+Estadístico: -7.007544009947936
+Valor p: 7.058164378223576e-10
 Número de retardos utilizados: 25
 Número de observaciones utilizadas: 2353
 Valores críticos:
@@ -4042,8 +3985,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_3_t-1_t+114:
-Estadístico: -7.154606075792194
-Valor p: 3.0778830726271067e-10
+Estadístico: -7.154606075792193
+Valor p: 3.077883072627129e-10
 Número de retardos utilizados: 24
 Número de observaciones utilizadas: 2354
 Valores críticos:
@@ -4053,8 +3996,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_4_t_t1R:
-Estadístico: -2.5157806169625947
-Valor p: 0.11168179056092481
+Estadístico: -2.5157806169626484
+Valor p: 0.11168179056091193
 Número de retardos utilizados: 25
 Número de observaciones utilizadas: 2348
 Valores críticos:
@@ -4064,8 +4007,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_3_t-1_t+121:
-Estadístico: -5.305384607188231
-Valor p: 5.336763499156692e-06
+Estadístico: -5.305384607188238
+Valor p: 5.336763499156501e-06
 Número de retardos utilizados: 21
 Número de observaciones utilizadas: 2357
 Valores críticos:
@@ -4075,8 +4018,8 @@ Valores críticos:
 
 
 Prueba de Dickey-Fuller para M_3_t-1_t+128:
-Estadístico: -6.40098920410126
-Valor p: 1.9958020503588677e-08
+Estadístico: -6.400989204101264
+Valor p: 1.9958020503588313e-08
 Número de retardos utilizados: 6
 Número de observaciones utilizadas: 2372
 Valores críticos:
