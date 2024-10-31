@@ -2834,19 +2834,21 @@ En la volatilidad se puede observar que al princpio tiende a ser baja durante gr
 (Volume)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="c1"># Supongamos que tu DataFrame tiene una columna llamada &#39;Volatility&#39;</span>
-<span class="c1"># Reemplaza &#39;your_dataframe&#39; con el nombre real de tu DataFrame</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">bitcoin_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Retorno_Acumulado&#39;</span><span class="p">,</span> 
-                   <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Histograma del retorno cuamulado&#39;</span><span class="p">,</span> 
-                   <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Retorno_Acumulado&#39;</span><span class="p">:</span> <span class="s1">&#39;Retorno_Acumulado&#39;</span><span class="p">})</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Asegúrate de reemplazar &#39;bitcoin_data&#39; por el nombre de tu DataFrame</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bitcoin_data</span><span class="p">[</span><span class="s1">&#39;Retorno_Acumulado&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma del Retorno Acumulado&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Retorno Acumulado&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<img alt="_images/91fc776166e42064119db9068112f534d50cd8a824831b489b1d090f91533d2e.png" src="_images/91fc776166e42064119db9068112f534d50cd8a824831b489b1d090f91533d2e.png" />
 </div>
 </div>
 <p>En el histograma del retorno acumulado se puede observar, que la mayoría de los datos acumulados están en el extremo derecho y pocos valores se encunetran distribuidos en la parte izquierda, es decir que el Bitcoin muestra que la mayor parte del tiempo del retorno fue positivo.</p>
