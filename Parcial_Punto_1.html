@@ -2457,36 +2457,98 @@ NaT           0.1    0.1      0.1    0.1   3590.0    0.00%  2010      8    32
 NaT           0.1    0.1      0.1    0.1   4400.0    0.00%  2010      8    32   
 2017-03-12  969.4  966.3  1,004.3  946.7  85330.0    0.32%  2017      3    12   
 
-            Price_diff  ...  Detrended_M3_special  Detrended_M4_special  \
-Date                    ...                                               
-2010-07-29         0.0  ...                   0.1                   0.1   
-2010-07-29         0.0  ...                   0.1                   0.1   
-2010-07-29         0.0  ...                   0.0                   0.1   
-2010-07-29         0.0  ...                   0.0                   0.0   
-2010-07-29         0.0  ...                   0.0                   0.0   
-2010-07-29         0.0  ...                   0.0                   0.0   
-2010-07-29         0.0  ...                   0.0                   0.0   
-2010-07-30         0.0  ...                   0.0                   0.0   
-2010-07-30         0.0  ...                   0.0                   0.0   
-2010-07-30         0.0  ...                   0.0                   0.0   
-2010-07-30         0.0  ...                   0.0                   0.0   
-2010-07-30         0.0  ...                   0.0                   0.0   
-2010-07-30         0.0  ...                   0.0                   0.0   
-2010-08-30         0.0  ...                   0.0                   0.0   
-2010-08-31         0.0  ...                   0.0                   0.0   
-2010-08-31         0.0  ...                   0.0                   0.0   
-2010-08-31         0.0  ...                   0.0                   0.0   
-2010-08-31         0.0  ...                   0.0                   0.0   
-2010-08-31         0.0  ...                   0.0                   0.0   
-2010-08-31         0.0  ...                   0.0                   0.0   
-2010-08-31         0.0  ...                   0.0                   0.0   
-NaT                0.0  ...                   0.0                   0.0   
-NaT                0.0  ...                   0.0                   0.0   
-NaT                0.0  ...                   0.0                   0.0   
-NaT                0.0  ...                   0.0                   0.0   
-NaT                0.0  ...                   0.0                   0.0   
-NaT                0.0  ...                   0.0                   0.0   
-2017-03-12         3.1  ...                  29.7                 969.4   
+            Price_diff      M2  M_2_t_t1    M_4  M_4_t_t1         M_3  \
+Date                                                                    
+2010-07-29         0.0     NaN       0.1    0.0       0.0    0.000000   
+2010-07-29         0.0    0.10       0.1    0.0       0.0    0.000000   
+2010-07-29         0.0    0.10       0.1    0.0       0.0    0.100000   
+2010-07-29         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-07-29         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-07-29         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-07-29         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-07-30         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-08-30         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
+2010-08-31         0.0    0.10       0.1    0.1       0.1    0.100000   
+NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
+NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
+NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
+NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
+NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
+NaT                0.0    0.10       0.1    0.1       0.1    0.100000   
+2017-03-12         3.1  967.85       NaN  961.7       0.0  958.466667   
+
+            M_3_t-1_t+1  Detrended_M2  Detrended_M3  Detrended_M4  \
+Date                                                                
+2010-07-29          0.0           NaN      0.100000           0.1   
+2010-07-29          0.0          0.00      0.100000           0.1   
+2010-07-29          0.1          0.00      0.000000           0.1   
+2010-07-29          0.1          0.00      0.000000           0.0   
+2010-07-29          0.1          0.00      0.000000           0.0   
+2010-07-29          0.1          0.00      0.000000           0.0   
+2010-07-29          0.1          0.00      0.000000           0.0   
+2010-07-30          0.1          0.00      0.000000           0.0   
+2010-07-30          0.1          0.00      0.000000           0.0   
+2010-07-30          0.1          0.00      0.000000           0.0   
+2010-07-30          0.1          0.00      0.000000           0.0   
+2010-07-30          0.1          0.00      0.000000           0.0   
+2010-07-30          0.1          0.00      0.000000           0.0   
+2010-08-30          0.1          0.00      0.000000           0.0   
+2010-08-31          0.1          0.00      0.000000           0.0   
+2010-08-31          0.1          0.00      0.000000           0.0   
+2010-08-31          0.1          0.00      0.000000           0.0   
+2010-08-31          0.1          0.00      0.000000           0.0   
+2010-08-31          0.1          0.00      0.000000           0.0   
+2010-08-31          0.1          0.00      0.000000           0.0   
+2010-08-31          0.1          0.00      0.000000           0.0   
+NaT                 0.1          0.00      0.000000           0.0   
+NaT                 0.1          0.00      0.000000           0.0   
+NaT                 0.1          0.00      0.000000           0.0   
+NaT                 0.1          0.00      0.000000           0.0   
+NaT                 0.1          0.00      0.000000           0.0   
+NaT                 0.1          0.00      0.000000           0.0   
+2017-03-12        939.7          1.55     10.933333           7.7   
+
+            Detrended_M2_special  Detrended_M3_special  Detrended_M4_special  \
+Date                                                                           
+2010-07-29                   0.0                   0.1                   0.1   
+2010-07-29                   0.0                   0.1                   0.1   
+2010-07-29                   0.0                   0.0                   0.1   
+2010-07-29                   0.0                   0.0                   0.0   
+2010-07-29                   0.0                   0.0                   0.0   
+2010-07-29                   0.0                   0.0                   0.0   
+2010-07-29                   0.0                   0.0                   0.0   
+2010-07-30                   0.0                   0.0                   0.0   
+2010-07-30                   0.0                   0.0                   0.0   
+2010-07-30                   0.0                   0.0                   0.0   
+2010-07-30                   0.0                   0.0                   0.0   
+2010-07-30                   0.0                   0.0                   0.0   
+2010-07-30                   0.0                   0.0                   0.0   
+2010-08-30                   0.0                   0.0                   0.0   
+2010-08-31                   0.0                   0.0                   0.0   
+2010-08-31                   0.0                   0.0                   0.0   
+2010-08-31                   0.0                   0.0                   0.0   
+2010-08-31                   0.0                   0.0                   0.0   
+2010-08-31                   0.0                   0.0                   0.0   
+2010-08-31                   0.0                   0.0                   0.0   
+2010-08-31                   0.0                   0.0                   0.0   
+NaT                          0.0                   0.0                   0.0   
+NaT                          0.0                   0.0                   0.0   
+NaT                          0.0                   0.0                   0.0   
+NaT                          0.0                   0.0                   0.0   
+NaT                          0.0                   0.0                   0.0   
+NaT                          0.0                   0.0                   0.0   
+2017-03-12                   NaN                  29.7                 969.4   
 
             Tendencia  Residuos  Daily_Return  Retorno_Acumulado  \
 Date                                                               
@@ -2549,8 +2611,6 @@ NaT                    0.0              0.0              0.0              NaN
 NaT                    0.0              0.0              0.0              NaN  
 NaT                    0.0              0.0              0.0              NaN  
 2017-03-12             NaN              NaN              NaN              NaN  
-
-[28 rows x 30 columns]
 </pre></div>
 </div>
 </div>
@@ -2854,25 +2914,44 @@ En la volatilidad se puede observar que al princpio tiende a ser baja durante gr
 <p>En el histograma del retorno acumulado se puede observar, que la mayoría de los datos acumulados están en el extremo derecho y pocos valores se encunetran distribuidos en la parte izquierda, es decir que el Bitcoin muestra que la mayor parte del tiempo del retorno fue positivo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.subplots</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
-                       <span class="n">subplot_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Volatilidad 7d&quot;</span><span class="p">,</span> <span class="s2">&quot;Volatilidad 14d&quot;</span><span class="p">,</span> <span class="s2">&quot;Volatilidad 21d&quot;</span><span class="p">,</span> <span class="s2">&quot;Volatilidad 28d&quot;</span><span class="p">))</span>
+<span class="c1"># Configuración del tamaño de la figura</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bitcoin_data</span><span class="p">[</span><span class="s1">&#39;Volatilidad_7d&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;7d&#39;</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bitcoin_data</span><span class="p">[</span><span class="s1">&#39;Volatilidad_14d&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;14d&#39;</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bitcoin_data</span><span class="p">[</span><span class="s1">&#39;Volatilidad_21d&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;21d&#39;</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">bitcoin_data</span><span class="p">[</span><span class="s1">&#39;Volatilidad_28d&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;28d&#39;</span><span class="p">),</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Histograma de volatilidad para 7 días</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bitcoin_data</span><span class="p">[</span><span class="s1">&#39;Volatilidad_7d&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Volatilidad 7d&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
 
+<span class="c1"># Histograma de volatilidad para 14 días</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bitcoin_data</span><span class="p">[</span><span class="s1">&#39;Volatilidad_14d&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightcoral&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Volatilidad 14d&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Histogramas de Volatilidad para W=7,14,21,28&quot;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Histograma de volatilidad para 21 días</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bitcoin_data</span><span class="p">[</span><span class="s1">&#39;Volatilidad_21d&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Volatilidad 21d&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+
+<span class="c1"># Histograma de volatilidad para 28 días</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bitcoin_data</span><span class="p">[</span><span class="s1">&#39;Volatilidad_28d&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Volatilidad 28d&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+
+<span class="c1"># Título general y ajustes finales</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Histogramas de Volatilidad para W=7,14,21,28&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<img alt="_images/cba44aefa2dba9be8b223c0b7457c1cfd19680ddc8b885f4f292fe797469148b.png" src="_images/cba44aefa2dba9be8b223c0b7457c1cfd19680ddc8b885f4f292fe797469148b.png" />
 </div>
 </div>
 <p>EN los histogramas presentados para la volatilidad en 7,14,21,28 la distribución es segada hacía la derecha y donde la mayoría de datos están concentardos cerca de 0. Además se puede observar que los rangos de volatilidd son pequeños, es decir que el mercado del bitcoin ha tenido peridos constantes donde la fluctuaciones fueron pequeñas.
@@ -2915,8 +2994,9 @@ de series de tiempo y boxplots para analizar estas subseries.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
+<span class="c1"># Diccionario de series agrupadas</span>
 <span class="n">series_agrupadas</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Mensual&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;Volatilidad 7d&#39;</span><span class="p">:</span> <span class="n">volatilidad_7_mes_mean</span><span class="p">,</span>
@@ -2941,26 +3021,34 @@ de series de tiempo y boxplots para analizar estas subseries.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 
-
 <span class="k">for</span> <span class="n">agrupacion</span><span class="p">,</span> <span class="n">series</span> <span class="ow">in</span> <span class="n">series_agrupadas</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
     
-    
+    <span class="c1"># Graficar series de volatilidad en el eje primario</span>
     <span class="k">for</span> <span class="n">nombre_serie</span><span class="p">,</span> <span class="n">datos</span> <span class="ow">in</span> <span class="n">series</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">datos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">datos</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">nombre_serie</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">nombre_serie</span> <span class="o">!=</span> <span class="s1">&#39;Retorno Acumulado&#39;</span><span class="p">:</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">datos</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">nombre_serie</span><span class="p">)</span>
     
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Series de Tiempo Agrupadas </span><span class="si">{</span><span class="n">agrupacion</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad (mean)&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     
-    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Series de Tiempo Agrupadas </span><span class="si">{</span><span class="n">agrupacion</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
-                      <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span>
-                      <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span>
-                      <span class="n">legend_title</span><span class="o">=</span><span class="s1">&#39;Series de tiempo para el retorno acumulado y la volatilidad en w=7,14,21,28&#39;</span><span class="p">)</span>
+    <span class="c1"># Graficar el Retorno Acumulado en el eje secundario</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">series</span><span class="p">[</span><span class="s1">&#39;Retorno Acumulado&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">series</span><span class="p">[</span><span class="s1">&#39;Retorno Acumulado&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Retorno Acumulado&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retorno Acumulado (mean)&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
     
- 
-    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<img alt="_images/9c8c85425e7f4769472adde6516a036f4bcb1ddbe53eb2257cbe1b6c2e4579ea.png" src="_images/9c8c85425e7f4769472adde6516a036f4bcb1ddbe53eb2257cbe1b6c2e4579ea.png" />
+<img alt="_images/21a83e168b1a9851422eecf169b9ded6cca17e80185af7cc45b321e2737cc1d5.png" src="_images/21a83e168b1a9851422eecf169b9ded6cca17e80185af7cc45b321e2737cc1d5.png" />
+<img alt="_images/d0a9e6cfcb07e9ba7d3d9e46be57ad39e4d37a821c105c87d95b7d1c297b41c5.png" src="_images/d0a9e6cfcb07e9ba7d3d9e46be57ad39e4d37a821c105c87d95b7d1c297b41c5.png" />
 </div>
 </div>
 <p>-Retorno acumulado y valatilidad mensual=En el retorno acumulado se puede observar un incremento de forma gradual desde el 2011, hasta el 2017, además presenta unos picos al rededor del 2013 hasta el 2016. En la voltidad se puede observar valores planos, por lo cuál se puede decir el la volatilidad del Bitcoin es estable</p>
@@ -2969,84 +3057,131 @@ de series de tiempo y boxplots para analizar estas subseries.</p>
 <p>Los gráficos mensual y semanal tienen una visión más al detalle, en cambio en el anual se ve logra observar la tendencia, pero sin tanto detalle</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+<span class="c1"># Asegurarse de que no haya NaN o valores infinitos en cada lista</span>
+<span class="n">volatilidad_7_mes_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_7_mes_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">volatilidad_14_mes_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_14_mes_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">volatilidad_21_mes_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_21_mes_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">volatilidad_28_mes_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_28_mes_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">retorno_acumulado_mes_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">retorno_acumulado_mes_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_7_mes_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad 7d (Mensual)&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_14_mes_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad 14d (Mensual)&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_21_mes_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad 21d (Mensual)&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_28_mes_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad 28d (Mensual)&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="c1"># Datos para volatilidades y nombres</span>
+<span class="n">volatilidades</span> <span class="o">=</span> <span class="p">[</span><span class="n">volatilidad_7_mes_mean</span><span class="p">,</span> <span class="n">volatilidad_14_mes_mean</span><span class="p">,</span> <span class="n">volatilidad_21_mes_mean</span><span class="p">,</span> <span class="n">volatilidad_28_mes_mean</span><span class="p">]</span>
+<span class="n">nombres_volatilidades</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Volatilidad 7d (Mensual)&#39;</span><span class="p">,</span> <span class="s1">&#39;Volatilidad 14d (Mensual)&#39;</span><span class="p">,</span> <span class="s1">&#39;Volatilidad 21d (Mensual)&#39;</span><span class="p">,</span> <span class="s1">&#39;Volatilidad 28d (Mensual)&#39;</span><span class="p">]</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">retorno_acumulado_mes_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Retorno Acumulado (Mensual)&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="c1"># Crear la figura y el primer eje</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Box Plots de Volatilidad y Retorno Acumulado mensual&#39;</span><span class="p">,</span>
-    <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Series&#39;</span><span class="p">,</span>
-    <span class="n">boxmode</span><span class="o">=</span><span class="s1">&#39;group&#39;</span> 
-<span class="p">)</span>
+<span class="c1"># Gráfico de cajas para las series de volatilidad en el eje primario</span>
+<span class="n">box1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)),</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nombres_volatilidades</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># +1 para incluir la posición del retorno acumulado</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">nombres_volatilidades</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Retorno Acumulado (Mensual)&#39;</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box Plots de Volatilidad y Retorno Acumulado mensual&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Crear un eje secundario para el Retorno Acumulado y graficarlo como un boxplot en una posición separada</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">box2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">retorno_acumulado_mes_mean</span><span class="p">],</span> <span class="n">positions</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)],</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;lightcoral&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retorno Acumulado&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<img alt="_images/ab43a86b0223b3446333fb93bb6ce203c2f8a88febdc1351bb20a894f7c59038.png" src="_images/ab43a86b0223b3446333fb93bb6ce203c2f8a88febdc1351bb20a894f7c59038.png" />
 </div>
 </div>
 <p>En la gráfica donde se cuentran los box plot, se puede observar que el de retorno acumulado se puede observar que hay una mediana, hay alta acumualción de datos entre el cuartil 1 y cuartil 3, además se observan outliers, que represnatn variaciones significatuvas.En los gráficos de volatilidad, esta es baja, en la ventana W=7, se observa que la volatilidad mensual es baja, además hay presencia de valores atípicos  y estos son peridos donde hubo mayor volatilidad;En la venatana W=14 la volatilidad también es baja, además hay presencia de valores atípicos; en w=21 la volatilidad es baja, inclusive se podría decir que es aún más baja que las mencionadas anteriormente, además tambien se observa presencia de outlier; por último en W=28 tiene el mismo patrón que las volatilidades anteriormente mencionadas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+<span class="c1"># Asegurarse de que no haya NaN o valores infinitos en cada lista</span>
+<span class="n">volatilidad_7_sem_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_7_sem_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">volatilidad_14_sem_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_14_sem_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">volatilidad_21_sem_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_21_sem_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">volatilidad_28_sem_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_28_sem_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">retorno_acumulado_mes_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">retorno_acumulado_mes_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_7_sem_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad w= 7 semanal&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_14_sem_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad w=14 semanal&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_21_sem_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad w= 21 semanal&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_28_sem_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad w=28 semanal&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="c1"># Datos para volatilidades y nombres</span>
+<span class="n">volatilidades</span> <span class="o">=</span> <span class="p">[</span><span class="n">volatilidad_7_sem_mean</span><span class="p">,</span> <span class="n">volatilidad_14_sem_mean</span><span class="p">,</span> <span class="n">volatilidad_21_sem_mean</span><span class="p">,</span> <span class="n">volatilidad_28_sem_mean</span><span class="p">]</span>
+<span class="n">nombres_volatilidades</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Volatilidad w=7 semanal&#39;</span><span class="p">,</span> <span class="s1">&#39;Volatilidad w=14 semanal&#39;</span><span class="p">,</span> <span class="s1">&#39;Volatilidad w=21 semanal&#39;</span><span class="p">,</span> <span class="s1">&#39;Volatilidad w=28 semanal&#39;</span><span class="p">]</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">retorno_acumulado_mes_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Retorno Acumulado semanal&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="c1"># Crear la figura</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Box Plots de Volatilidad y Retorno Acumulado semanal&#39;</span><span class="p">,</span>
-    <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Valores&#39;</span><span class="p">,</span>
-    <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Series&#39;</span><span class="p">,</span>
-    <span class="n">boxmode</span><span class="o">=</span><span class="s1">&#39;group&#39;</span> 
-<span class="p">)</span>
+<span class="c1"># Gráfico de violín para las series de volatilidad en el eje primario</span>
+<span class="n">violin1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showmedians</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nombres_volatilidades</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># +2 para incluir espacio del eje secundario</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">nombres_volatilidades</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Retorno Acumulado semanal&#39;</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribución de Volatilidad y Retorno Acumulado semanal&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Crear un eje secundario para el Retorno Acumulado y graficarlo como un violín en una posición separada</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">violin2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">violinplot</span><span class="p">([</span><span class="n">retorno_acumulado_mes_mean</span><span class="p">],</span> <span class="n">positions</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showmedians</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retorno Acumulado&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<img alt="_images/6b5d2de684f7da56e8a2ffaefd72a91d67cdc9e6ee88f29bd910ad58b03c3d7d.png" src="_images/6b5d2de684f7da56e8a2ffaefd72a91d67cdc9e6ee88f29bd910ad58b03c3d7d.png" />
 </div>
 </div>
 <p>Los box plots de volatilidad muestran que la mediana de la volatilidad tiene media cero y baja variabilidad en la semana, presenta outliers esto es debido que hay semanas en las cuales se produce un aumento en el precio del Bitcoin, en cambio el box plot acumualdo semanal tiene una distribución amplia  con presencia de outliers lo cuapl indica que hay semanas en las cuales se observa una alta variación en el retorno</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+<span class="c1"># Asegurarse de que no haya NaN o valores infinitos en cada lista</span>
+<span class="n">volatilidad_7_año_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_7_año_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">volatilidad_14_año_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_14_año_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">volatilidad_21_año_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_21_año_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">volatilidad_28_año_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">volatilidad_28_año_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+<span class="n">retorno_acumulado_mes_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">retorno_acumulado_mes_mean</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_7_año_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad w= 7 anual&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_14_año_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad w=14 anual&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_21_año_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad w= 21 anual&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">volatilidad_28_año_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Volatilidad w=28 anual&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="c1"># Datos para volatilidades y nombres</span>
+<span class="n">volatilidades</span> <span class="o">=</span> <span class="p">[</span><span class="n">volatilidad_7_año_mean</span><span class="p">,</span> <span class="n">volatilidad_14_año_mean</span><span class="p">,</span> <span class="n">volatilidad_21_año_mean</span><span class="p">,</span> <span class="n">volatilidad_28_año_mean</span><span class="p">]</span>
+<span class="n">nombres_volatilidades</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Volatilidad w=7 anual&#39;</span><span class="p">,</span> <span class="s1">&#39;Volatilidad w=14 anual&#39;</span><span class="p">,</span> <span class="s1">&#39;Volatilidad w=21 anual&#39;</span><span class="p">,</span> <span class="s1">&#39;Volatilidad w=28 anual&#39;</span><span class="p">]</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">retorno_acumulado_mes_mean</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Retorno Acumulado anual&#39;</span><span class="p">,</span> <span class="n">boxpoints</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="c1"># Crear la figura y el primer eje</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Box Plots de Volatilidad y Retorno Acumulado anual&#39;</span><span class="p">,</span>
-    <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Valores&#39;</span><span class="p">,</span>
-    <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Series&#39;</span><span class="p">,</span>
-    <span class="n">boxmode</span><span class="o">=</span><span class="s1">&#39;group&#39;</span> 
-<span class="p">)</span>
+<span class="c1"># Gráfico de cajas para las series de volatilidad en el eje primario</span>
+<span class="n">box1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)),</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nombres_volatilidades</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># +1 para incluir la posición del retorno acumulado</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">nombres_volatilidades</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Retorno Acumulado anual&#39;</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box Plots de Volatilidad y Retorno Acumulado anual&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># Crear un eje secundario para el Retorno Acumulado y graficarlo como un boxplot en una posición separada</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">box2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">retorno_acumulado_mes_mean</span><span class="p">],</span> <span class="n">positions</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)],</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;lightcoral&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retorno Acumulado&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<img alt="_images/68c800bda62ab28ff27e28ad0840f7564e3bf093e8fdf2ee403762c7acf9ea56.png" src="_images/68c800bda62ab28ff27e28ad0840f7564e3bf093e8fdf2ee403762c7acf9ea56.png" />
 </div>
 </div>
 <p>Los box plot de volatilidad presentan valores con mediana cercana a cero, con cajas estrechas y una baja presencia de outlier por lo tanto la volatilidad se mantiene contastante anual. En cambio en el box plot de retornos acumulados se muestra una mayor variabilidad, con la mediana posicionada en el rango inferior, es decir, en promedio el creciemiento no es significativo, además hay presencia de outliers en donde el bitcoin pudo haber tenido altos y bajos</p>
